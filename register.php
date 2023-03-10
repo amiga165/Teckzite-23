@@ -155,6 +155,15 @@ include "repeats/header.php"
             <label for="file">UPLOAD YOUR ID CARD PROOF</label>
               <input type="file" name="image" id="file" required style="padding-top:10px;color:#3efefe;" accept=".png,.jpg,.jpeg">
           </div>
+          <div class="my-2 col-12 col-sm-12 d-flex  "  style="flex-direction:column;justify-content:center;text-align:center">
+            <span>
+              <input type="checkbox" required >
+              <label for="rules"  style="margin-left:2px" id="terms">Accept Terms and conditions</label>
+            </span>
+            <div style="font-size:17px"><a href="#" style="color:aqua;font-weight:700">click here </a>to read Terms and Conditions</div>
+          </div>
+        
+
 
           <div id="password-match-error"></div>
           
@@ -234,7 +243,14 @@ include "repeats/footer.php"
               font-weight:700;
             }
     </style>
-
+  <style>
+            @media (max-width:425px){
+              #terms{
+                font-size:15px;
+              }
+              
+            }
+            </style>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
