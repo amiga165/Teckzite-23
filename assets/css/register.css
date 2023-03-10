@@ -1,0 +1,115 @@
+.register-box{
+  max-width: 1000px;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  /* border:2px solid white; */
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255,255,255,0.07);
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  padding: 50px 35px;
+  position: relative;
+  padding: 10px;
+}
+@media(max-width:560px){
+  .register-box{
+    padding-left:25px;
+  }
+}
+.register-box .row .col-12{
+  position: relative;
+}
+.register-box .row .col-12>label{
+  font-weight:600;
+  font-size:18px;
+}
+@media (max-width:580px){
+  .register-box{
+    margin-top: 10px;
+  }
+}
+.register-box .col-12>input{
+  width: 100%;
+  min-width: 200px;
+  height: 40px;
+  background-color: transparent;
+  z-index: 100;
+  font-weight:700;
+  border: none;
+  outline: none;
+  color:white;
+  margin-left:3px;
+}
+.register-box .col-12>input:focus{
+  color: black;
+}
+.register-box input#male,.register-box input#female{
+  height: 14px;
+  width: 40px;
+}
+.register-box span {
+  color: white;
+  font-size: 20px; 
+}
+.register-box i {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  transition: height 0.5s;
+  background-color: aqua;
+  width: 80%;
+  pointer-events: none;
+  z-index: -1;
+}
+.register-box input:active{
+  color:black;
+}
+input:focus ~ i{
+  height: 34px;
+}
+input:focus ~ span{
+  color: grey;
+  font-size: 10px;
+}
+.register-box input#register{
+  background-color: aqua;
+  color: white;
+  border-radius: 9px;
+  border:white;
+  font-weight: bold;
+  font-family: arial;
+  font-size: 20px;
+  transition: 0.5s;
+  margin-bottom: 10px;
+  width: fit-content;
+  margin: 0px auto;
+}
+.register-box input#register:active{
+  transform: translateY(4px);
+  background-color: rgb(55, 0, 255);
+}
+
+.blink{
+ 
+  
+  text-align: center;
+  /* line-height: 50px; */
+}
+.blink{
+  font-size: 25px;
+  
+  color: white;
+  animation: blink 1s linear infinite;
+}
+@media(max-width:700px){
+  .blink{
+  font-size:19px;
+}}
+@keyframes blink{
+0%{opacity: 0;}
+50%{opacity: .5;}
+100%{opacity: 1;}
+}
