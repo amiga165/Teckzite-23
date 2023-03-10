@@ -54,16 +54,15 @@ include "repeats/header.php"
             </section>
         </div>
     </div>
-    <svg class="side-heading" style="margin-top:100px">
+    <svg class="side-heading" style="padding-top:100px;">
         <text x="50%" dominant-baseline="middle" text-anchor="middle" y="50%">
-            Sponsers
+            Speakers
         </text>
     </svg>
 
     <style>
          .swiper {
       width: 100%;
-      padding-top: 50px;
       padding-bottom: 50px;
       overflow: hidden;
     }
@@ -100,7 +99,7 @@ include "repeats/header.php"
   }
     </style>
 
-    <div class="speaker-containers" style="margin-top:100px;min-height:calc(100vh - 190px)">
+    <div class="speaker-containers" style="min-height:calc(100vh - 190px)">
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
         <div class="swiper mySwiper">

@@ -162,7 +162,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// SQL query to retrieve data for i3-Left-wing block
+
 $sql = "SELECT * FROM competitions";
 $result = mysqli_query($conn, $sql);
 // Loop through the result set and display data in table format

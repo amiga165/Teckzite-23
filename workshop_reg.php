@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
+   <?php 
+include "repeats/metatags.php"
+?>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
   <script src="js/jquery.min.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>Home</title>
+  <title>Teckzite | Workshop Registration</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -35,47 +39,12 @@
   <link href="assets/css/stars.css" rel="stylesheet">
   <link href="assets/css/register.css" rel="stylesheet">
   
-
-
 </head>
 
 <body>
-<div class="side-nav">
-    <div class="close-btn">
-        <i class="bi bi-x navbar-icon"></i>
-    </div>
-    <ul class="side-nav-list">
-        <li class="side-nav-list-items"><a href="about.html" class="side-nav-link">About</a></li>
-        <li class="side-nav-list-items"><a href="events.html" class="side-nav-link">Events</a></li>
-        <li class="side-nav-list-items"><a href="workshops.html" class="side-nav-link">Workshops</a></li>
-        <li class="side-nav-list-items"><a href="contact.html" class="side-nav-link">Contact</a></li>
-        <!-- <li class="side-nav-list-items"><a href="login.html" class="side-nav-link">Log In</a></li> -->
-        <li class="side-nav-list-items"><a href="reguister.html" class="side-nav-link">Register</a></li>
-        <li class="side-nav-list-items"><a href="reguister.html" class="side-nav-link">Register</a></li>
-    </ul>
-</div>
-<nav class="header">
-  <div class="svg-line"><img src="assets/img/large-screen-hl.svg"></div>
-  <div class="hl">
-      <div class="sub-elements d-block d-lg-none mx-auto pf"><i class="bi bi-person-circle"></i></div>
-      <ul class="header-left-part d-none d-lg-flex">
-              <li class="sub-elements"><a href="about.html">About</a></li>
-              <li class="sub-elements"><a href="events.html">Events</a></li>
-              <li class="sub-elements"><a href="workshops.html">Workshops</a></li>
-      </ul>
-  </div>
-  <div class="header-img">
-      <img src="assets/img/main-logo.png">
-  </div>
-  <div class="hr">
-      <div class="sub-elements d-block d-lg-none mx-auto"><i class="bi bi-filter-right navbar-icon"></i></div>
-      <ul class="header-right-part d-none d-lg-flex">
-          <li class="sub-elements"><a href="contact.html">contact</a></li>
-          <li class="sub-elements"><a href="login.html">Log In</a></li>
-          <li class="sub-elements"><a href="register.html" class="active">Register</a></li>
-      </ul>
-  </div>
-</nav>
+<?php 
+include "repeats/header.php"
+?>
 
   <!-- Background -->
   <div class="background-container-events">
@@ -102,6 +71,7 @@
   </svg>
     <div class="register-box mb-4">
       <form action="workshop-code.php" method='post' class="row">
+        <p class="blink" style="font-size:23px;">Registering For <?php echo $_GET['workname']; ?> Workshop</p>
           <div class="my-2 col-12 col-sm-6 d-flex" style="flex-direction:column;justify-content:flex-start">
               <label for="username">First Name</label>
               <input type="text" name="firstname" id="username" required>
@@ -138,31 +108,22 @@
               </div>
           </div>
           <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="">Email</label>
+            <label for="Email">Email</label>
               <input type="email" name='email' required>
               <i></i>
           </div>
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="select-box"> Select WOrkshop</label>
-              <select id="select-box" name="workshop"style="background: transparent;border: none;color: white;font-size: 18px;width: 85%;">
-                <option value="option-1" >CSE</option>
-                <option value="option-1">option-1</option>
-                <option value="option-1">option-1</option>
-                <option value="option-1">option-1</option>
-                <option value="option-1">option-1</option>
-                <option value="option-1">option-1</option>
-                <option value="option-1">option-1</option>
-                <option value="option-1">option-1</option>
-                <option value="option-1">option-1</option>
-                <option value="option-1">option-1</option>
-              </select>
+          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start;">
+            <label for="select-box"> Select Workshop</label>
+            <select name="workshop" style="border:none;background:transparent;margin-top:2px;width: 85%;color:white">
+              <option value="<?php echo $_GET['workname'] ?>"><?php echo $_GET['workname'] ?></option>
+            </select>
               <style>
                 option{   
                   backdrop-filter: blur(10px);
                   background-color: rgba(0,0,0,1);
                   border: 2px solid rgba(0,0,0,0.1);
                   box-shadow: 0 0 40px rgb(8 7 16 / 60%);
-                }
+                }
                 #select-box:active{
                   border:none;
                 }
@@ -182,10 +143,11 @@
               <i></i>
           </div>
 
-          <div id="password-match-error"></div>
+          <div id="event-error"></div>
           
           
-          <input type="submit" id="pay-btn" onclick="continueWithPay()" value="Next" id="register" class="text-center" style="margin-top:20px;margin-bottom:5px;">
+          <input type="submit" id="pay-btn" onclick="continueWithPay()" value="Next" id="register" class="text-center" style="margin:auto;margin-top:20px;margin-bottom:5px;width:30%;padding:5px 10px;background-color:#3fefef;border-radius:10px">
+          
           <br>
           <div class="already-txt my-2 text-center">Already have an Account <a href="login.html" style="color:#3efefe">Login Here</a></div>
       </form>
@@ -200,65 +162,45 @@
     </div>
     <br>
     <br>
+    
+    <script>
+        const submitBtn = document.getElementById('pay-btn');
+        const errorMessage = document.getElementById('event-error');
+        submitBtn.addEventListener('click',function(e){
+          const errorCount = validateForm();
+          if(errorCount === 1){
+            e.preventDefault();
+          }
+        });
+        function validateForm(){
+          const mobileNumber = document.getElementById('phno').value;
+          var error = 0;
+          if(mobileNumber.length != 10){
+             errorMessage.innerHTML = `Please Enter a Valid Phone Number`;
+          }
+          else{
+            errorMessage.innerHTML = ``;
+            const Modal = new bootstrap.Modal(document.getElementById('register-confirmation'));
+            Modal.show();
+          }
+        }
+    </script>
   
 
 </main>
 
 
 <!-- Footer -->
-<footer style="position:relative">
-  <!-- <div class="footer-line"><img src="assets/img/footer-fl.svg"></div> -->
-   <div class="footer-middle-part">
-    <a href="#">About</a><a href="#">Terms & Conditions</a>
-   </div>
-   <div class="footer-left-part">
-    <p>&copy; 2023 Teczite, RGUKT-NUZVID</p>
- </div>
-   <div class="footer-right-part">
-      <div class="social-media">
-          <a href="#"><i class="bi bi-linkedin"></i></a>
-          <a href="#"><i class="bi bi-instagram"></i></a>
-          <a href="#"><i class="bi bi-youtube"></i></a>
-          <a href="#"><i class="bi bi-facebook"></i></a>
-          <a href="#"><i class="bi bi-twitter"></i></a>
-      </div>
-   </div>
-</footer>
+<?php 
+include "repeats/footer.php"
+?>
+
 
 
 <!-- Footer -->
 
-<script>
-      const password = document.getElementById('password');
-      const confirmPassword = document.getElementById('c-password');
-
-      const passwordMatchError = document.getElementById('password-match-error');
-
-      const submitBtn = document.getElementById('register');
-
-      submitBtn.addEventListener('click',function(e){
-        errorCount = validateForm();
-        if(errorCount == 1){
-          e.preventDefault(); 
-        }
-      });
-    
-    function validateForm(){
-      if(password.value !== confirmPassword.value){
-        passwordMatchError.innerHTML = 'Passwords are not matching'
-        var error = 1;
-      }
-      else{
-        passwordMatchError.innerHTML = ''
-        var error = 0;
-      }
-      return error;
-    }
-
-    </script>
-
     <style>
-            #password-match-error{
+            #event-error{
               margin-top: 5px;
               color:rgb(200,40,40);
               text-align:center;

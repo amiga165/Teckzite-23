@@ -160,7 +160,7 @@ include "repeats/header.php"
               <input type="checkbox" required >
               <label for="rules"  style="margin-left:2px" id="terms">Accept Terms and conditions</label>
             </span>
-            <div style="font-size:17px"><a href="#" style="color:aqua;font-weight:700">click here </a>to read Terms and Conditions</div>
+            <div style="font-size:17px"><a href="#" style="color:aqua;font-weight:700">Click here </a>to read Terms and Conditions</div>
           </div>
         
 

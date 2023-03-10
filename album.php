@@ -180,7 +180,8 @@ include "repeats/header.php"
     </div>
 </div>
     <?php
-    $conn=mysqli_connect("localhost","root","","teckzite");
+    include "db_config.php";
+    $conn= mysqli_connect($db_host, $db_user, $db_password, $db_db);
     $sql="SELECT * FROM album";
     $res=mysqli_query($conn,$sql);
     if($res->num_rows>0)

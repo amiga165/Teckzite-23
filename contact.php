@@ -53,7 +53,7 @@ include "repeats/header.php"
 </div>
 <div class="planet-area">
   <div class="bg-section">
-      <img src="assets/img/jupiter.png" class="img-fluid">
+      <img src="assets/img/jupiter.webp" class="img-fluid">
       <div class="text-part">
           <svg class="side-heading">
               <text x="50%" dominant-baseline="middle" text-anchor="middle" y="50%">

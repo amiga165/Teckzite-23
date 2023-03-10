@@ -39,7 +39,7 @@ echo '</ul>
   </ul>
 </div>
 <div class="header-img">
-  <img src="assets/img/main-logo.png">
+  <a href="index.php"><img src="assets/img/main-logo.png"></a>
 </div>
 <div class="hr">
   <div class="sub-elements d-block d-lg-none mx-auto"><i class="bi bi-filter-right navbar-icon"></i></div>
