@@ -37,7 +37,16 @@
             Thank You
         </div>
         <div class="thank-msg text-center">
-            Your Form was Submitted Succesfully
+            <?php
+            if(isset($_GET['tz']))
+            {
+                echo $_GET['tz'];
+            }
+            elseif(isset($_GET['check']))
+            {
+                echo $_GET['check'];
+            }
+            ?>
         </div>
         <div class="ok-btn-container"><a href="HMS.php"><button class="ok-btn pop-msg-btn">OK</button></a></div>
     </div>

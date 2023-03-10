@@ -77,15 +77,16 @@ include "repeats/header.php"
 
 
 <?php
-  $conn=mysqli_connect("localhost","root","","teczite");
-  $sql="SELECT * FROM `notifactions`";
+  include "db_config.php";
+  $conn = mysqli_connect($db_host,$db_user,$db_password,$db_db);
+  $sql="SELECT * FROM notifactions";
   $res=mysqli_query($conn,$sql);
   while($row=mysqli_fetch_assoc($res))
   {
     if($row['eveactive'] == 'YES')
     {?>
       <div  class="toast-container">
-        <div class="image"><img src="assets/img/buzzer.webp" alt="" /></div>
+        <div class="image"><img src="assets/img/buzzer.webp" alt="" ></div>
         <div class="text-content">
           <h3>
             <?php echo $row['eventmsg'] ?>
@@ -133,6 +134,7 @@ include "repeats/footer.php"
       
   <!-- Template Main JS File -->
   <script src="assets/js/script.js"></script>
+  
 
 </body>
 

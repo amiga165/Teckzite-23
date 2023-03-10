@@ -190,7 +190,7 @@ include "repeats/header.php"
           if($row['id'] % 2 != 0)
           {?>
             <div class="row content">
-            <div class="col-lg-6 col-sm-12 col-xs-12 EventIMG first"><img src="uploads/<?= $row['image'] ?>" alt=""></div>
+            <div class="col-lg-6 col-sm-12 col-xs-12 EventIMG first"><img src="album/<?= $row['image'] ?>" alt=""></div>
                     <div class=" col-lg-6 col-sm-12 col-xs-12 event-discription">
                         <div class="event-title"><?= $row['heading']." ".$row['eve_date'] ?></div>
                         <div class="event-details">

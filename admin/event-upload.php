@@ -1,5 +1,11 @@
 <?php
 include "repeats/header.php";
+
+if (!isset($_SESSION["admin_id"])) {
+    // If user is not logged in, redirect to login page
+    header("Location: login.html");
+    exit;
+}
 if(isset($_GET['s'])){
     $success = $_GET['s'];
     ?>
@@ -184,6 +190,7 @@ mysqli_close($conn);
 
 
 
+<!--end table-->
 
 
 

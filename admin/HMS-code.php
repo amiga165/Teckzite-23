@@ -64,7 +64,10 @@ $stmt = $mysqli->prepare("INSERT INTO HMS (tzid, Block, Room, Checkin, Checkout)
 $stmt->bind_param("sssss", $tzid, $block, $room, $checkin_time, $checkout_time);
 
 $stmt->execute();
-header("Location: card-2.html");
+
+$str=$tzid." allocated ".$block." - ".$room;
+
+header("Location: card-2.php?tz=$str");
 
 $stmt->close();
 $mysqli->close();

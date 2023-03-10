@@ -24,7 +24,8 @@ if ($mysqli->connect_error) {
         header("Location: card-1.html");
     } else {
         // Otherwise, redirect to success page
-        header("Location: card-2.html");
+        $che=$tzid." is checkedout ".$checkout_time;
+        header("Location: card-2.php?check=$che");
     }
     $stmt->close();
     $mysqli->close();

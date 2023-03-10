@@ -26,4 +26,22 @@ if(isset($_POST['album']))
     
     
 }
+// delete the album
+if (isset($_POST['albdel'])) {
+    include "db_config.php";
+    $conn = new mysqli($db_host, $db_user, $db_password, $db_db);
+    $d = $_POST['id'];
+    $smt = $conn->prepare("DELETE FROM album WHERE id = ?");
+    $smt->bind_param("i", $d);
+    $smt->execute();
+    
+    $smt->close();
+    $conn->close();
+    $aldel =  "Delete successfully done";
+    header("Location: album-upload.php?albd=$aldel");
+}
+
+else{
+    echo "not";
+}
 ?>
