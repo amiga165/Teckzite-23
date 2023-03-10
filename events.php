@@ -43,10 +43,18 @@ include "repeats/metatags.php"
       /* border-radius: 10px; */
     }
     #bin{
-      box-shadow: 0 0 15px 5px cyan;
+      /* box-shadow: 0 0 15px 5px cyan; */
+      border: 2px solid transparent;
+    background: linear-gradient(71deg, #080509, #1a171c, #080509);
+    background-clip: padding-box;
+    border-radius: 15px;
     }
     #register{
       cursor: pointer;
+    }
+    .btn-success{
+      background:#3efefe;
+      color:black;
     }
     /* ---------------------------------ARUN------------------------------------ */
 
@@ -160,7 +168,7 @@ include "repeats/header.php"
   <!-- End Header Section -->
   <!-- ======= Hero Section ======= -->
     <div class="main-event-frame mb-5">
-        <div class="tabs" style="margin-top:70px">
+        <div class="tabs" style="margin-top:70px;z-index:10;">
             <ul class="nav tab-cont">
                 <li class="nav-item">
                   <a class="tab-a nav-link active dfilters " data-bs-toggle="tab" href="#forall" id="forall"  data-filter="forall">For All</a>
@@ -194,9 +202,19 @@ include "repeats/header.php"
                 </li>
               </ul>
         </div>
+
+        <style>
+            .event-flex{
+              display:flex;
+              justify-content:space-around;
+              align-items:center;
+              flex-wrap:wrap;
+            }
+          </style>
     
         <div class="tab-content events-container container">
-          <div class="tab-pane container active" id="forall">
+          <div class="tab-pane container active">
+            <div class="event-flex">
           <?php    
               include "db_config.php";
               $conn = mysqli_connect($db_host, $db_user, $db_password, $db_db);
@@ -208,7 +226,6 @@ include "repeats/header.php"
               $num=1;
               while($row = mysqli_fetch_assoc($q1)){
           ?>
-          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
           <!---------------------------------------------------------------------------------------------------------------------->
           <div class="boxy <?php echo $row['eveDepartment']; ?> ">
             <div class="event-card" style="z-index: 2;">
@@ -229,9 +246,7 @@ include "repeats/header.php"
                 </div>
               </div>
             </div>
-
-          </div>
-          </div>
+            </div>
                   <!-- View More Modal -->
                   <div class="modal fade " id="open-view-more<?php echo $num;?>">
                     <div class="modal-dialog modal-dialog-centered" style="max-width:800px">
@@ -247,12 +262,12 @@ include "repeats/header.php"
                             <div class="event-structure">
                                 <div class="sub-side-heading">Structure</div>
                                 <?php
-$structure = $row['structure'];
-$values = explode(',', $structure);
-foreach($values as $value) {
-    echo $value . "<br/>";
-}
-?>
+                                  $structure = $row['structure'];
+                                  $values = explode(',', $structure);
+                                  foreach($values as $value) {
+                                      echo $value . "<br/>";
+                                  }
+                                  ?>
                             </div>
                             </div>
                             <div class="flex-second-half">
@@ -268,29 +283,33 @@ foreach($values as $value) {
                                     <div class="sub-side-heading">Contacts</div>
                                     <div class="sub-flex">
                                     <?php
-$contact_info = $row['contact_info'];
-$values = explode(',', $contact_info);
-foreach($values as $value) {
-    echo $value . "<br/>";
-}
-?>
+                                $contact_info = $row['contact_info'];
+                                $values = explode(',', $contact_info);
+                                foreach($values as $value) {
+                                    echo $value . "<br/>";
+                                }
+                                ?>
 
-                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
                 <!-- View More Modal -->
-          <?php $num++;} ?>
-    </div>
+          <?php $num++;} ?> 
+                              </div>
   </div>
+                              </div>
+</div>
+</div>
 </div>
 <!-- ----------------------REGISTER POPUP------------------------- -->
-<div id="register" style="display:none;height:100vh;width:100vw;position:fixed;top:0;left:0;z-index:100;justify-content:center;align-items:center;background:rgba(0,0,0,0.8)">
-  <div id="bin" style="height:60vh;width:70vh;overflow-y:scroll;padding:20px;border-radius:10px;background:black;">
+<div id="register" style="display:none;height:100vh;width:100vw;position:fixed;top:0;left:0;z-index:100;justify-content:center;align-items:center;backdrop-filter: blur(20px);
+    background-color: rgba(0,0,0,0.2);">
+  <div id="bin" style="height:60vh;width:70vh;overflow-y:scroll;padding:20px;">
     <div class="h" style="display:flex;flex-direction:row;">
       
       <h5 id="eveDepartment" class="py-3 text-center" style="width:95%;">Department</h5>
@@ -335,8 +354,7 @@ foreach($values as $value) {
       $("#eveTeamSize").text("Team Size: "+maxTeam);
       var patch = `<form action='event-code.php' method='post'><input type='text' hidden name='event_id' value=${eveID}><input type='text' hidden name='tsize' value=${maxTeam}><input type='text' hidden name='branch' value=${eveDepartment}>`;
       for(let x=1; x<=maxTeam;x++){patch = patch+ `<div class="field"><label for="Tz-Id-${x}">Techzite ID${x}</label><input type="text" name="tzidNumber-${x}" id="Tz-Id-${x}" required><i></i><br></div>`;}
-      document.getElementById("tz_ids").innerHTML = patch+"<input type='submit' class='btn btn-success mt-4' id='reg_submit' style='width:100%' value='Submit'></form>";
-
+      document.getElementById("tz_ids").innerHTML = patch+"<input type='submit' class='btn btn-success mt-4' id='reg_submit' style='margin:10px 30%;width:40%' value='Submit'></form>";
     });
     $(".closeme").click(function(){
       $("#register").hide();
@@ -344,12 +362,19 @@ foreach($values as $value) {
     /*$("#viewmore").click(function(){$(this).css("display","none");});*/
   });
   // ----------------------------------------------------CARDS
+  
 </script>
+
 
 
 <?php
 include "repeats/footer.php"
 ?>
+<style>
+  footer{
+    position:relative;
+  }
+</style>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
