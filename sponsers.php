@@ -64,7 +64,7 @@ include "repeats/header.php"
   <div class="mt-3 sponser-heading">Primary Sponsers</div>
   <div class="sponser-row">
     <div class="sponser-details">
-      <img src="assets/img/image.png" alt="sponser-logo">
+      <img src="assets\img\sponsers\mhrd.jpg" alt="sponser-logo">
     </div>
   </div>
 
@@ -72,10 +72,10 @@ include "repeats/header.php"
     <div class="mt-3 sponser-heading">Secondary Sponsers</div>
   <div class="sponser-row">
     <div class="sponser-details">
-      <img src="assets/img/image.png" alt="sponser-logo">
+      <img src="assets\img\sponsers\ACE.png" alt="sponser-logo">
     </div>
     <div class="sponser-details">
-      <img src="assets/img/image.png" alt="sponser-logo">
+      <img src="assets\img\sponsers\adeptchips.png" alt="sponser-logo">
     </div>
   </div>
 
@@ -84,29 +84,29 @@ include "repeats/header.php"
     <div class="mt-3 sponser-heading">Teritary Sponsers</div>
   <div class="sponser-row">
     <div class="sponser-details">
-      <img src="assets/img/image.png" alt="Sponser-logo">
+      <img src="assets\img\sponsers\amz.jpg" alt="Sponser-logo">
     </div>
     <div class="sponser-details">
-      <img src="assets/img/image.png" alt="Sponser-logo">
+      <img src="assets\img\sponsers\byte xl.png" alt="Sponser-logo">
     </div>
     <div class="sponser-details">
-      <img src="assets/img/image.png" alt="Sponser-logo">
+      <img src="assets\img\sponsers\innovians technologies.jpeg" alt="Sponser-logo">
     </div>
   </div>
   <!-- third sponser-row sponsers ended -->
-    <div class="mt-3 sponser-heading">Fourth Sponsers</div>
+    <div class="mt-3 sponser-heading">Quaternary Sponsers</div>
   <div class="sponser-row">
     <div class="sponser-details">
-      <img src="assets/img/image.png" alt="Sponser-logo">
+      <img src="assets\img\sponsers\mentor mind.jpg" alt="Sponser-logo">
     </div>
     <div class="sponser-details">
-      <img src="assets/img/image.png" alt="Sponser-logo">
+      <img src="assets\img\sponsers\mhrd.jpg" alt="Sponser-logo">
     </div>
     <div class="sponser-details">
-      <img src="assets/img/image.png" alt="Sponser-logo">
+      <img src="assets\img\sponsers\shirke.jpg" alt="Sponser-logo">
     </div>
     <div class="sponser-details">
-      <img src="assets/img/image.png" alt="Sponser-logo">
+      <img src="assets\img\sponsers\sbi.png" alt="Sponser-logo">
     </div>
 
   </div>

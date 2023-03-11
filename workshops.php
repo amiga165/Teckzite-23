@@ -232,6 +232,7 @@ include "repeats/header.php"
           <!---------------------------------------------------------------------------------------------------------------------->
           <div class="boxy <?php echo $row['branch']; ?> ">
             <div class="event-card" style="z-index: 2;">
+              <div class="overlay"></div>
               <img src="workshops/<?php echo $row['photo']; ?>">
               <div class="workshop-register-btn">
               <?php 
@@ -252,52 +253,13 @@ include "repeats/header.php"
               </div>
             </div>
             </div>
-            <style>
-              .event-card .workshop-register-btn{
-                position: absolute;
-                top:-40px;
-                left: 50%;
-                transform:translateX(-50%);
-                transition:top 0.5s ease;
-              }
-                .event-card .workshop-register-btn button{
-                  background:rgba(0,0,0,0.4);
-                  font-weight:800;
-                  color:white;
-                  padding: 5px 25px;
-                  border:1px solid white;
-                  border-radius:0.25em;
-                }
-                .event-card .workshop-register-btn button:hover{
-                  background:#3fefef;
-                  color:black;
-                }
-              .event-details{
-                height: 80px;
-              }
-               .event-title{
-                 text-align:center;
-                 text-transform:capitalize;
-               }
-               .small-details{
-                width: 100%;
-               }
-               .small-details-sub1{
-                text-align:center;
-                width: 100%;
-               }
-               .event-btns{
-                 display: flex;
-                 justify-content:center;
-               }
-               .event-card:hover .workshop-register-btn{
-                top:30px;
-               }
-            </style>
                   <!-- View More Modal -->
                   <div class="modal fade " id="open-view-more<?php echo $num;?>">
                     <div class="modal-dialog modal-dialog-centered" style="max-width:800px">
                     <div class="modal-content" style="background-color:black;">
+                    <div class="modal-header" style="border-bottom:none">
+                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color:white;margin-bottom:10px"></button>
+                      </div>
                         <div class="modal-body">
                         <div class="event-info">  <?php echo $row['wrk_des']; ?>  </div>
                         <div class="flex-div mt-3">
@@ -332,6 +294,65 @@ include "repeats/header.php"
 </div>
 </div>
 </div>
+<style>
+              .overlay{
+                position:absolute;
+                z-index:3;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color:rgba(63, 239, 239,0.3);
+              }
+              .event-card img{
+                z-index:1;
+              }
+              .event-card:hover img{
+                filter: blur(2px);
+              }
+              .event-card .workshop-register-btn{
+                position: absolute;
+                top:-40px;
+                left: 50%;    
+                transform:translateX(-50%);
+                transition:top 0.5s ease;
+              }
+                .event-card .workshop-register-btn button{
+                  background:rgba(0,0,0,0.4);
+                  font-weight:800;
+                  color:white;
+                  padding: 5px 25px;
+                  border:1px solid white;
+                  border-radius:0.25em;
+                }
+                .event-card .workshop-register-btn button:hover{
+                  background:#3fefef;
+                  color:black;
+                }
+              .event-details{
+                height: 90px;
+                z-index:4;
+              }
+               .event-title{
+                 text-align:center;
+                 text-transform:capitalize;
+               }
+               .small-details{
+                width: 100%;
+               }
+               .small-details-sub1{
+                text-align:center;
+                width: 100%;
+               }
+               .event-btns{
+                 display: flex;
+                 justify-content:center;
+               }
+               .event-card:hover .workshop-register-btn{
+                top:30px;
+                z-index:4;
+               }
+            </style>
 <!-- ----------------------REGISTER POPUP------------------------- -->
 <div id="register" style="display:none;height:100vh;width:100vw;position:fixed;top:0;left:0;z-index:100;justify-content:center;align-items:center;backdrop-filter: blur(20px);
     background-color: rgba(0,0,0,0.2);">
