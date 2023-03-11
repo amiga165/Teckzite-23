@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['id']))
 {
-  header("Location: login.php");
+  header("Location: index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -287,7 +287,7 @@ mysqli_close($conn);
 
 
   <section>
-    <div class="profile-card">
+    <div class="profile-card" style="margin-top:5%;">
       <div class="heading">PROFILE</div>
       <div class="prof-img">
         <img src="assests\image.png" alt="">
@@ -326,7 +326,7 @@ if(($everes->num_rows >0) && ($comres->num_rows>0))
             if($row['event_id'] == $img['eveName'])
             { ?>
                 <div class="card">
-                <img src="eventsphotos/<?= $img['eveImg'] ?>" alt="">
+                <img src="eventsphotos/<?= $img['eveImg'] ?>" alt="" width="250px" height="290">
             <?php
             }
           }

@@ -53,7 +53,7 @@ include "repeats/header.php"
 </div>
 <div class="planet-area">
   <div class="bg-section">
-      <img src="assets/img/jupiter.webp" class="img-fluid">
+      <img src="assets/img/jupiter.webp" class="img-fluid jupiter">
       <div class="text-part">
           <svg class="side-heading">
               <text x="50%" dominant-baseline="middle" text-anchor="middle" y="50%">
@@ -66,6 +66,16 @@ include "repeats/header.php"
     </div>
   </div>
 </div>
+<style>
+  .bg-section img.jupiter{
+      transform:translate(-50%,-50%) scale(1.5);
+  }
+  @media (max-width:600px){
+    .bg-section{
+      overflow:hidden;
+    } 
+  }
+</style>
 
 
   <div class="main-frame row">

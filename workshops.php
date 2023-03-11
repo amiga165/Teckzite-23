@@ -35,13 +35,6 @@ include "repeats/metatags.php"
   <link rel="stylesheet" href="assets/css/sub.css">
   <style>
     /* ---------------------------------ARUN------------------------------------ */
-    #bin::-webkit-scrollbar{
-      width:4px;
-    }
-    #bin::-webkit-scrollbar-thumb{
-      background:rgba(255,255,255,0.2);
-      /* border-radius: 10px; */
-    }
     #bin{
       /* box-shadow: 0 0 15px 5px cyan; */
       border: 2px solid transparent;
@@ -151,11 +144,11 @@ include "repeats/header.php"
 </div>
 <div class="planet-area">
   <div class="bg-section">
-      <img src="assets/img/earth.png" class="img-fluid">
+      <img src="assets/img/earth1.png" class="img-fluid earth1">
       <div class="text-part">
           <svg class="side-heading">
               <text x="50%" dominant-baseline="middle" text-anchor="middle" y="50%">
-                  Competitions
+                  Workshops
               </text>
           </svg>
       </div>
@@ -164,6 +157,16 @@ include "repeats/header.php"
     </div>
   </div>
 </div>
+<style>
+  .bg-section img.earth1{
+      transform:translate(-50%,-50%) scale(1.4);
+  }
+  @media (max-width:600px){
+    .bg-section{
+      overflow:hidden;
+    } 
+  }
+</style>
 
   <!-- End Header Section -->
   <!-- ======= Hero Section ======= -->
@@ -288,7 +291,7 @@ include "repeats/header.php"
 <!-- ----------------------REGISTER POPUP------------------------- -->
 <div id="register" style="display:none;height:100vh;width:100vw;position:fixed;top:0;left:0;z-index:100;justify-content:center;align-items:center;backdrop-filter: blur(20px);
     background-color: rgba(0,0,0,0.2);">
-  <div id="bin" style="height:60vh;width:70vh;overflow-y:scroll;padding:20px;">
+  <div id="bin" style="max-height:60vh;width:70vh;overflow-y:scroll;padding:20px;">
     <div class="h" style="display:flex;flex-direction:row;">
       
       <h5 id="eveDepartment" class="py-3 text-center" style="width:95%;">Department</h5>

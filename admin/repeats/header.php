@@ -57,6 +57,9 @@ color:white;
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/buttons/2.3.5/css/buttons.dataTables.min.css">
+
    
 </head>
 
@@ -99,9 +102,10 @@ color:white;
                         </div>
                     </div>
                     <a href="HMS-data.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>HMS</a>
-                    <a href="Ems.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>EMS</a>
-                    <a href="event-upload.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Events</a>
-                    <a href="album-upload.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Album</a>
+                    <a href="Ems.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>EVENT REG</a>
+                    <a href="event-upload.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>EMS</a>
+                    <a href="workshop-upload.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>WMS</a>
+                    <a href="album-upload.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>ALBUM</a>
                     <a href="notification.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Notifications</a>
                     <a href="password.php" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Forgotpasswords</a>
 

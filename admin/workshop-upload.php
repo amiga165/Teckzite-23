@@ -6,14 +6,14 @@ if (!isset($_SESSION["admin_id"])) {
     header("Location: login.html");
     exit;
 }
-if(isset($_GET['s'])){
-    $success = $_GET['s'];
+if(isset($_GET['wk'])){
+    $success = $_GET['wk'];
     ?>
     <script> alert("<?php echo $success ?>")</script>
     <?php
 }
-if(isset($_GET['d'])){
-    $delete = $_GET['d'];
+if(isset($_GET['wkdel'])){
+    $delete = $_GET['wkdel'];
     ?>
     <script> alert("<?php echo $delete ?>")</script>
     <?php
@@ -30,13 +30,13 @@ if(isset($_GET['d'])){
                             <a href="index.html" class="">
                                 <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Teckzite 2k23</h3>
                             </a>
-                            <h3>Events Upload Form</h3>
+                            <h3>Workshop Upload Form</h3>
 
                             </div>
-                        <form action="event-upload-code.php" method='post' enctype="multipart/form-data" >
+                        <form action="workshop-upload-code.php" method='post' enctype="multipart/form-data" >
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingText" placeholder="Heading" name="eventname"  required>
-                            <label for="floatingText">Event-name</label>
+                            <input type="text" class="form-control" id="floatingText" placeholder="workshop name" name="wrkname"  required>
+                            <label for="floatingText">workshop name</label>
                         </div>
 
 
@@ -54,59 +54,47 @@ if(isset($_GET['d'])){
                 <option value="forall">Open To All </option>
                 <option value="robotics">robotics</option>
               </select>
-              <label for="FloatingText" >Select Box</label>
+              <label for="FloatingText" >Branch</label>
                         </div>
 
 
                         <div class="form-floating mb-3">
-                            <textarea name="st" id="" cols="40" rows="10" class="vk" required></textarea >
-                            <label for="floatingText">Structure</label>
+                            <textarea name="st-des" id="" cols="40" rows="10" class="vk" required></textarea >
+                            <label for="floatingText">Short-des</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <textarea name="des" id="" cols="40" rows="10" class="vk" required></textarea>
+                            <textarea name="des" id="" cols="40" rows="12" class="vk" required></textarea>
                             <label for="floatingText">Description</label>
-                        </div>
-
-                   
-
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingText" placeholder="Heading" name="time" required>
-                            <label for="floatingText">Time</label>
                         </div>
 
                
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingText" placeholder="Heading"  name="price"  required>
-                            <label for="floatingText">Prize Money</label>
+                            <input type="text" class="form-control" id="floatingText" placeholder="Amount"  name="amt"  required>
+                            <label for="floatingText">Amount</label>
                         </div>
 
 
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingText" placeholder="Heading" name="duration" required>
-                            <label for="floatingText">Duration </label>
+                            <input type="text" class="form-control" id="floatingText" placeholder="Heading" name="venue and time" required>
+                            <label for="floatingText">Venue & Time</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <textarea  id="" cols="40" rows="10" class="vk" name="phno" required></textarea>
-                            <label for="floatingText">contacts</label>
+                            <input type="text" class="form-control" id="floatingText" placeholder="Heading" name="Duration" required>
+                            <label for="floatingText">Duration</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="floatingText" placeholder="Heading" name="min" required>
-                            <label for="floatingText">Min-Team-size</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="floatingText" placeholder="Heading" name="max" required>
-                            <label for="floatingText">Max-Team-size</label>
+                            <textarea name="ph_no" id="" cols="40" rows="12" class="vk" required></textarea>
+                            <label for="floatingText">Phone number</label>
                         </div>
 
 
                         <div class="form-floating mb-3">
-                        <input type="file" name="eimg" class="form-control"  id="floatingText" placeholder="Image" accept=".png,.jpeg,.jpg" required>
+                        <input type="file" name="wimg" class="form-control"  id="floatingText" placeholder="Image" accept=".png,.jpeg,.jpg" required>
                             <label for="floatingText">Image</label>
                         </div>
 
@@ -114,7 +102,7 @@ if(isset($_GET['d'])){
                         <div class="d-flex align-items-center justify-content-between mb-4" >
                         
                         </div>
-                        <button type="submit" name="event" class="btn btn-primary py-3 w-100 mb-4" >submit</button>
+                        <button type="submit" name="wrkshop" class="btn btn-primary py-3 w-100 mb-4" >submit</button>
 
                         </form>
                     </div>
@@ -123,11 +111,11 @@ if(isset($_GET['d'])){
         </div>
 
 
-        <form action="event-upload-code.php " class="text-center " method="POST">
-  <label for="id">Competition ID:</label>
+        <form action="workshop-upload-code.php " class="text-center " method="POST">
+  <label for="id">workshop id:</label>
   <input type="number" id="id" name="id" required>
   <br>
-  <button type="submit" name="evedel">Delete Competition</button>
+  <button type="submit" name="wrkdel">Delete workshop</button>
 </form>
 
 
@@ -145,9 +133,9 @@ if(isset($_GET['d'])){
                         <table class="table text-start align-middle table-bordered table-hover mb-0 table table-striped" id="example2">
                             <thead>
                                 <tr class="text-white">
-                                    <th scope="col">EVENT-ID</th>
-                                    <th scope="col">EVENT NAME</th>
-                                    <th scope="col">BRANCH</th>  
+                                    <th scope="col">workshop id</th>
+                                    <th scope="col">workshop name</th>
+                                    <th scope="col">Branch</th>  
                                 </tr>
                             </thead>
 </tbody>
@@ -163,15 +151,15 @@ if (!$conn) {
 }
 
 
-$sql = "SELECT * FROM competitions";
+$sql = "SELECT * FROM workshops";
 $result = mysqli_query($conn, $sql);
 // Loop through the result set and display data in table format
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_array($result)) {
         echo "<tr>";
-        echo "<td>" . $row["eveSno"] . "</td>";
-        echo "<td>" . $row["eveName"] . "</td>";
-        echo "<td>" . $row["eveDepartment"] . "</td>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["wrk_name"] . "</td>";
+        echo "<td>" . $row["branch"] . "</td>";
      
     }
 } else {
@@ -212,6 +200,8 @@ mysqli_close($conn);
 
 
 
+
+
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -233,7 +223,7 @@ mysqli_close($conn);
     <script>
 
 $(document).ready(function() {
-    $('#example2').DataTable( {
+    $('#example3').DataTable( {
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
@@ -271,7 +261,67 @@ fileInput.addEventListener('change', function() {
   }
 });</script>
     <!-----Delete the event ----->
-  
+          <!-- Table Start -->
+           
+          <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">CSE</h6>
+                        <a href="">Show All</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0 table table-striped" id="example3">
+                            <thead>
+                                <tr class="text-white">
+                                    <th scope="col">Workshop Name</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>  
+                                    <th scope="col">College</th> 
+                                    <th scope="col">GMail</th>
+                                    <th scope="col">Phone Number</th>
+                                    <th scope="col">Roll No.</th>   
+                                </tr>
+                            </thead>
+</tbody>
+                 
+                            <?php
+                                                 // Connect to database
+
+$conn = mysqli_connect($db_host, $db_user, $db_password, $db_db);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
+$sql = "SELECT * FROM workshops_reg";
+$result = mysqli_query($conn, $sql);
+// Loop through the result set and display data in table format
+if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_array($result)) {
+        echo "<tr>";
+        echo "<td>" . $row["workshop"] . "</td>";
+        echo "<td>" . $row["first_name"] . "</td>";
+        echo "<td>" . $row["last_name"] . "</td>";
+        echo "<td>" . $row["gender"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "<td>" . $row["phono"] . "</td>";
+        echo "<td>" . $row["rollno"] . "</td>";
+
+     
+    }
+} else {
+    echo "0 results";
+}
+
+// Close database connection
+mysqli_close($conn);
+
+                                                ?>
+
+</div>
+
 <?php
 include "repeats/footer.php";
 ?>

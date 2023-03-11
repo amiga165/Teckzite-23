@@ -141,12 +141,26 @@ include "repeats/footer.php";
 ?>
 
 
-    <script>$(document).ready(function () {
-    $('#example').DataTable();
-});</script>
-<script>$(document).ready(function () {
-    $('#example2').DataTable();
-});</script>
+<script>
+
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );</script>
+<script>
+
+$(document).ready(function() {
+    $('#example2').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );</script>
 </body>
 
 </html>

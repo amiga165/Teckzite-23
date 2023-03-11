@@ -36,11 +36,7 @@ include "repeats/metatags.php"
   <style>
     /* ---------------------------------ARUN------------------------------------ */
     #bin::-webkit-scrollbar{
-      width:4px;
-    }
-    #bin::-webkit-scrollbar-thumb{
-      background:rgba(255,255,255,0.2);
-      /* border-radius: 10px; */
+      display:none;
     }
     #bin{
       /* box-shadow: 0 0 15px 5px cyan; */
@@ -237,7 +233,7 @@ include "repeats/header.php"
                     <span>Prize Money</span> :- <?php echo $row['prizeMoney']; ?>
                   </div>
                   <div class="small-details-sub2">
-                    <span>Event Type</span> :- <?php echo $row['maxTeam']//if($row['minTeam']>1){echo "Team";}else{echo "Individual";} ?>
+                    <span>Team Size</span> :- <?php echo $row['maxTeam']//if($row['minTeam']>1){echo "Team";}else{echo "Individual";} ?>
                   </div>
                 </div>
                 <div class="event-btns">
@@ -309,13 +305,13 @@ include "repeats/header.php"
 <!-- ----------------------REGISTER POPUP------------------------- -->
 <div id="register" style="display:none;height:100vh;width:100vw;position:fixed;top:0;left:0;z-index:100;justify-content:center;align-items:center;backdrop-filter: blur(20px);
     background-color: rgba(0,0,0,0.2);">
-  <div id="bin" style="height:60vh;width:70vh;overflow-y:scroll;padding:20px;">
+  <div id="bin" style="max-height:60vh;width:70vh;overflow-y:scroll;padding:20px;">
     <div class="h" style="display:flex;flex-direction:row;">
       
       <h5 id="eveDepartment" class="py-3 text-center" style="width:95%;">Department</h5>
       <div class="closeme" style="color:red;text-align:right;font-size:2em;">&times;</div>
     </div>
-    <h1 id="eveName" class="text-center" style="color:orangered"></h1>
+    <h1 id="eveName" class="text-center" style="color:#3fefef;text-transform:uppercase"></h1>
     <h5 id="eveTeamSize" ></h5>
     <div id="tz_ids">
     </div>
@@ -353,8 +349,9 @@ include "repeats/header.php"
       $("#eveName").text(eveName);
       $("#eveTeamSize").text("Team Size: "+maxTeam);
       var patch = `<form action='event-code.php' method='post'><input type='text' hidden name='event_id' value=${eveName}><input type='text' hidden name='tsize' value=${maxTeam}><input type='text' hidden name='branch' value=${eveDepartment}>`;
-      for(let x=1; x<=maxTeam;x++){patch = patch+ `<div class="field"><label for="Tz-Id-${x}">Techzite ID${x}</label><input type="text" name="tzidNumber-${x}" id="Tz-Id-${x}" required><i></i><br></div>`;}
+      for(let x=1; x<=maxTeam;x++){patch = patch+ `<div class="field"><label for="Tz-Id-${x}">Techzite ID${x}</label><input type="text" name="tzidNumber-${x}" id="Tz-Id-${x}" oninput='this.value = this.value.toUpperCase();' required><i></i><br></div>`;}
       document.getElementById("tz_ids").innerHTML = patch+"<input type='submit' class='btn btn-success mt-4' id='reg_submit' style='margin:10px 30%;width:40%' value='Submit'></form>";
+      changeToUppercase()
     });
     $(".closeme").click(function(){
       $("#register").hide();

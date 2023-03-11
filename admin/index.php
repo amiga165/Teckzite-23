@@ -235,8 +235,15 @@ include "repeats/footer.php";
          },3000);
       })}
      </script>
-      <script>$(document).ready(function () {
-    $('#example').DataTable();
-});</script>
+      <script>
+
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );</script>
 
 </html>

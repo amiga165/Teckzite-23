@@ -17,7 +17,7 @@ if(isset($_SESSION['id'])) {
 }
 
 echo '<li class="side-nav-list-items"><a href="about.php" class="side-nav-link">About</a></li>
-    <li class="side-nav-list-items"><a href="events.php" class="side-nav-link">Events</a></li>
+    <li class="side-nav-list-items"><a href="events.php" class="side-nav-link">Competitions</a></li>
     <li class="side-nav-list-items"><a href="workshops.php" class="side-nav-link">Workshops</a></li>
     <li class="side-nav-list-items"><a href="contact.php" class="side-nav-link">Contact</a></li>
     <li class="side-nav-list-items"><a href="speakers.php" class="side-nav-link">Speakers</a></li>
@@ -33,7 +33,7 @@ echo '</ul>
 <div class="hl">
   <div class="sub-elements d-block d-lg-none mx-auto pf"><i class="bi bi-person-circle"></i></div>
   <ul class="header-left-part d-none d-lg-flex">
-          <li class="sub-elements"><a href="events.php">Events</a></li>
+          <li class="sub-elements"><a href="events.php">Competitions</a></li>
           <li class="sub-elements"><a href="workshops.php">Workshops</a></li>
           <li class="sub-elements"><a href="contact.php">contact</a></li>
   </ul>

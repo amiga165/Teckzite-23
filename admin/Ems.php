@@ -108,9 +108,16 @@ include "repeats/footer.php";
 ?>
 
 
-    <script>$(document).ready(function () {
-    $('#example').DataTable();
-});</script>
+<script>
+
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );</script>
 
 </body>
 
