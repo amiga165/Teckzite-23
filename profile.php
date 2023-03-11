@@ -81,13 +81,11 @@ include "repeats/metatags.php"
       section .profile-card{
         width: 240px;
         height: auto;
-        background-color: black;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin-top: 20px;
-
       }
       section .profile-card .heading{
         color: white;
@@ -105,8 +103,8 @@ include "repeats/metatags.php"
         align-items: center;
       } 
       section .profile-card .prof-img img{
-        width: 95%;
-        height: 95%;
+        width: 97%;
+        height: 97%;
         border: 3px solid black;
         border-radius: 50%;
         overflow: hidden;
@@ -114,11 +112,14 @@ include "repeats/metatags.php"
       section .profile-card .prof-ID{
         color: aqua;
         font-family: 'Potta One';
+        margin-top: 5px;
         font-size: 1.2rem;
         font-weight: 700;
         letter-spacing: 2px;
       }
-      section .profile-card .prof-mail{
+      section .profile-card .prof-ID:nth-child(3){
+        margin-top: 0px;
+        margin-bottom: 5px;
         color: grey;
       }
       section .profile-card div{
@@ -158,42 +159,45 @@ include "repeats/metatags.php"
 
       /* card css */
       .card{
-      width: 250px;
-      height: 350px;
-      background: rgba(13, 12, 12, 0.77);
-      box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
-      backdrop-filter: blur(20px);
-      display: flex;
-      flex-direction: column;
+      width: 225px;
+      height: 275px;
       position: relative;
       border-radius: 6px;
       overflow: hidden;
       margin-top: 20px;
       margin-bottom: 20px;
     }
-    .card .content{
+    .card img{
       width: 100%;
-      height: 60%;
+      height: 100%;
       position: absolute;
-      left: 0;
+    }
+    .card .extra-details{
+      width: 100%;
+      height: 110px;
+      background:black;
+      position:absolute;
       bottom: 0;
-      background: rgba(13, 12, 12, 0.77);
+      background:rgba(0,0,0,0.77);
       box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
       backdrop-filter: blur(20px);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+      padding: 10px;
+      transition:height 1s ease;
     }
-    .card .content .row{
-      margin-top:5px ;
+    .card:hover .extra-details{
+      --width:fit-contnet;
+      height:var(--width);
     }
-    .card .content .row .info{
-      color: aqua;
-      margin-left: 10px;
+    .card table tr td{
+      color:white
     }
-    .card .content .row .val{
-      margin-left: -40px;
+    .card table tr>td:nth-child(1){
+       color:#3fefef;
     }
+    .card .captalize{
+       text-transform:capitalize;
+    }
+
        </style>
 </head>
 <body>
@@ -215,7 +219,7 @@ if(isset($_SESSION['id'])) {
 }
 
 echo '<li class="side-nav-list-items"><a href="about.php" class="side-nav-link">About</a></li>
-    <li class="side-nav-list-items"><a href="events.php" class="side-nav-link">Events</a></li>
+    <li class="side-nav-list-items"><a href="events.php" class="side-nav-link">Competitions</a></li>
     <li class="side-nav-list-items"><a href="workshops.php" class="side-nav-link">Workshops</a></li>
     <li class="side-nav-list-items"><a href="contact.php" class="side-nav-link">Contact</a></li>
     <li class="side-nav-list-items"><a href="speakers.php" class="side-nav-link">Speakers</a></li>
@@ -231,7 +235,7 @@ echo '</ul>
 <div class="hl">
   <div class="sub-elements d-block d-lg-none mx-auto pf"><i class="bi bi-person-circle"></i></div>
   <ul class="header-left-part d-none d-lg-flex">
-          <li class="sub-elements"><a href="events.php">Events</a></li>
+          <li class="sub-elements"><a href="events.php">Competitions</a></li>
           <li class="sub-elements"><a href="workshops.php">Workshops</a></li>
           <li class="sub-elements"><a href="contact.php">contact</a></li>
   </ul>
@@ -257,6 +261,16 @@ echo '</
 </nav>';
 ?>
 
+  <!-- Background -->
+  <div class="background-container-events">
+    <div class="parallax">
+        <section class="wrapper">
+            <div id="stars"></div>
+            <div id="stars2"></div>
+            <div id="stars3"></div>
+        </section>
+    </div>
+</div>  
 
 <?php
 // create a database connection
@@ -285,12 +299,16 @@ mysqli_close($conn);
 ?>
 
 
-
+<svg class="side-heading" style="margin-top:20px">
+    <text x="50%" dominant-baseline="middle" text-anchor="middle" y="50%">
+        Your Profile
+    </text>
+  </svg>
   <section>
-    <div class="profile-card" style="margin-top:5%;">
-      <div class="heading">PROFILE</div>
+    <div class="profile-card" >
+     
       <div class="prof-img">
-        <img src="assests\image.png" alt="">
+        <img src="assets/img/profilepic.jpg">
       </div>
       <div class="prof-ID"><?php echo  $id ?></div>
       <div class="prof-ID"> <?php echo $email?></div>
@@ -301,7 +319,7 @@ mysqli_close($conn);
     <div class="E-heading">REGISTERED EVENTS</div>
     <hr style="margin:10px 20px;color:white;height:1px;background-color: aqua;">
     <div class="E-card-banner">
-      <div class="heading">COMPETITIONS</div>
+      <!-- <div class="heading">COMPETITIONS</div> -->
       <div class="row E-card">
   <?php
 // create a database connection
@@ -313,62 +331,71 @@ if (!$conn) {
 // get the email for a specific ID number
 $sql = "SELECT * FROM events_reg";
 $everes=mysqli_query($conn,$sql);
-$esql="SELECT * FROM competitions";
-$comres=mysqli_query($conn,$esql);
-if(($everes->num_rows >0) && ($comres->num_rows>0))
+
+if(($everes->num_rows >0))
 {
     while($row=mysqli_fetch_assoc($everes))
     {
         if(($row['tzid1'] == $id ) || ($row['tzid2'] == $id) || ($row['tzid3'] == $id)|| ($row['tzid4'] == $id)|| ($row['tzid5'] == $id) || ($row['tzid6'] == $id) || ($row['tzid7'] == $id) || ($row['tzid8'] == $id) || ($row['tzid9'] == $id) || ($row['tzid10'] == $id))
-        {
+        {?>
+          <div class="card">
+            <?php
+            $esql="SELECT * FROM competitions";
+            $comres=mysqli_query($conn,$esql);
           while($img=mysqli_fetch_assoc($comres))
           {
             if($row['event_id'] == $img['eveName'])
             { ?>
-                <div class="card">
                 <img src="eventsphotos/<?= $img['eveImg'] ?>" alt="" width="250px" height="290">
             <?php
             }
           }
             
            ?>
-            
+
         <!-- first card started -->
-        
-          <div class="content">
-            <div class="row ">
-              <div class="col info  ">Event Name</div>
-              <div class="col val text-white ">:-<?php echo $row['event_id'] ?></div>
-            </div>
-            <div class="row ">
-              <div class="col info ">Team Size</div>
-              <div class="col val text-white">:- <?php echo $row['teamsize'] ?></div>
-            </div>
-            <?php
-            $team = array();
-            for ($i = 1; $i <= $row['teamsize']; $i++) {
-                $tzid_col = "tzid" . $i;
-                $tzid = $row[$tzid_col];
-                if (!empty($tzid)) {
-                    $team[] = $tzid;
-                    // echo $team[$i-1];
-                    ?>
-                    <div class="row ">
-                        <div class="col info">Member</div>
-                        <div class="col val text-white">:- <?php echo $team[$i-1] ?></div>
-                    </div>
-                    <?php
-                }
-            }
+        <div class="extra-details">
+          <table>
+            <tr>
+              <td>Event Name</td>
+              <td>&nbsp;&nbsp;:-&nbsp;&nbsp;</td>
+              <td class="captalize"><?php echo $row['event_id'] ?></td>
+            </tr>
+            <tr>
+              <td>Team Size</td>
+              <td>&nbsp;&nbsp;:-&nbsp;&nbsp;</td>
+              <td> <?php echo $row['teamsize'] ?></td>
+            </tr>
+            <tr>
+              <td>Branch</td>
+              <td>&nbsp;&nbsp;:-&nbsp;&nbsp;</td>
+              <td><?php echo $row['branch'] ?></td>
+            </tr>
+             <?php
+             $evensql="SELECT * FROM competitions";
+             $comperes=mysqli_query($conn,$esql);
+             while($time=mysqli_fetch_assoc($comperes))
+             {
+               if($row['event_id'] == $time['eveName'])
+               { ?>
+                    <tr>
+              <td>Event time</td>
+              <td>&nbsp;&nbsp;:-&nbsp;&nbsp;</td>
+              <td><?php echo $time['timeline'] ?></td>
+            </tr>
+            <tr>
+              <td>Prize Money</td>
+              <td>&nbsp;&nbsp;:-&nbsp;&nbsp;</td>
+              <td><?php echo $time['prizeMoney'] ?></td>
+            </tr>
+               <?php
+               }
+             }
             ?>
-            <div class="row ">
-              <div class="col info">Branch</div>
-              <div class="col val text-white">:- <?php echo $row['branch'] ?></div>
-            </div>
             
-          </div>
-  
+          </table>
         </div>
+          </div>
         <!-- first card ended -->
         <?php
         }
@@ -387,8 +414,9 @@ mysqli_close($conn);
 
     </div>
   </div>
-
-
+  <?php
+  include "repeats/footer.php";
+  ?>
 
 </body>
 </html>

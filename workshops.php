@@ -233,23 +233,67 @@ include "repeats/header.php"
           <div class="boxy <?php echo $row['branch']; ?> ">
             <div class="event-card" style="z-index: 2;">
               <img src="workshops/<?php echo $row['photo']; ?>">
+              <div class="workshop-register-btn">
+              <?php 
+                     $nice=$row['wrk_name'];
+                  ?>
+                  <a href="workshop_reg.php?workname=<?= $nice ?>"><button class="eid register event-register">Register</button>   </a>
+              </div>
               <div class="event-details">
                 <div class="event-title w-100"> <?php echo $row['wrk_name']; ?>  </div>
                 <div class="small-details">
                   <div class="small-details-sub1">
-                    <span>Des</span> :- <?php echo $row['wrk_info']; ?>
+                    <?php echo $row['wrk_info']; ?>
                   </div>
                 </div>
                 <div class="event-btns">
-                  <button class="eid<?php echo $row['id']; ?> viewmore event-view-more btn btn-sm btn-primary"  data-bs-toggle="modal" data-bs-target="#open-view-more<?php echo $num;?>">View More</button>
-                  <?php 
-                     $nice=$row['wrk_name'];
-                  ?>
-                  <a href="workshop_reg.php?workname=<?= $nice ?>"><button class="eid register event-register btn btn-sm btn-primary">Register</button></a>
+                  <button class="<?php echo $row['id']; ?> viewmore event-view-more btn btn-sm btn-primary"  data-bs-toggle="modal" data-bs-target="#open-view-more<?php echo $num;?>">View More</button>
                 </div>
               </div>
             </div>
             </div>
+            <style>
+              .event-card .workshop-register-btn{
+                position: absolute;
+                top:-40px;
+                left: 50%;
+                transform:translateX(-50%);
+                transition:top 0.5s ease;
+              }
+                .event-card .workshop-register-btn button{
+                  background:rgba(0,0,0,0.4);
+                  font-weight:800;
+                  color:white;
+                  padding: 5px 25px;
+                  border:1px solid white;
+                  border-radius:0.25em;
+                }
+                .event-card .workshop-register-btn button:hover{
+                  background:#3fefef;
+                  color:black;
+                }
+              .event-details{
+                height: 80px;
+              }
+               .event-title{
+                 text-align:center;
+                 text-transform:capitalize;
+               }
+               .small-details{
+                width: 100%;
+               }
+               .small-details-sub1{
+                text-align:center;
+                width: 100%;
+               }
+               .event-btns{
+                 display: flex;
+                 justify-content:center;
+               }
+               .event-card:hover .workshop-register-btn{
+                top:30px;
+               }
+            </style>
                   <!-- View More Modal -->
                   <div class="modal fade " id="open-view-more<?php echo $num;?>">
                     <div class="modal-dialog modal-dialog-centered" style="max-width:800px">

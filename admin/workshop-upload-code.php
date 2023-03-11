@@ -8,7 +8,7 @@ if(isset($_POST['wrkshop']))
     $info=$_POST['st-des'];
     $desc=$_POST['des'];
     $amt=$_POST['amt'];
-    $venue=$_POST['venue and time'];
+    $venue=$_POST['vt'];
     $duration=$_POST['Duration'];
     $phno=$_POST['ph_no'];
     $img_name=$_FILES['wimg']['name'];

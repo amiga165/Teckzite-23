@@ -2,14 +2,14 @@
 <html lang="en">
   
   <head>
-  <?php 
-include "repeats/metatags.php"
-?>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
   <script src="js/jquery.min.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Teckzite | Speakers</title>
- 
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -65,44 +65,58 @@ include "repeats/header.php"
       width: 100%;
       padding-bottom: 50px;
       overflow: hidden;
-    }
+      position: relative;
+        }
 
-    .swiper-slide {
-      background-position: center;
-      background-size: cover;
-      width: 300px;
-      height: 300px;    
-    }
+        .swiper-slide {
+          background-position: center;
+          background-size: cover;
+          width: 300px;
+          height: 300px;    
+        }
 
-    .swiper-button-next,
-  .swiper-button-prev {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    color: #fff;
-    text-align: center;
-    font-size: 24px;
-    line-height: 30px;
-    cursor: pointer;
-    z-index: 10;
-  }
+        .swiper-button-next,
+      .swiper-button-prev {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+        color: #fff;
+        text-align: center;
+        font-size: 24px;
+        line-height: 30px;
+        cursor: pointer;
+        z-index: 10;
+      }
 
-  .swiper-button-next {
-    right: 10px;
-  }
+      .swiper-button-next {
+        right: 10px;
+      }
 
-  .swiper-button-prev {
-    left: 10px;
-  }
+      .swiper-button-prev {
+        left: 10px;
+      }
+        </style>
+
+        <div class="speaker-containers">
+        <style>
+          .speaker-containers{
+          width: 100%;
+          overflow:hidden;
+          min-height:calc(100vh - 300px)
+      }
+      @media (max-width:768px){
+        .speaker-container{
+          width: 90%;
+          margin-left: 10%;
+        }
+      }
     </style>
-
-    <div class="speaker-containers" style="min-height:calc(100vh - 190px)">
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
         <div class="swiper mySwiper">
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <div class="card">
@@ -161,7 +175,7 @@ include "repeats/header.php"
               
             </div>
           </div>
-        <div class="swiper-pagination"></div>
+        
 
           <style>
             .card{
@@ -207,6 +221,7 @@ include "repeats/header.php"
       text-align: center;
       margin-top: 5px;
     }
+   
           </style>
        
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
@@ -245,6 +260,12 @@ include "repeats/header.php"
     <?php
 include "repeats/footer.php"
 ?>
+<style>
+  footer{
+    position:relative;
+    margin-top: 40px;
+  }
+</style>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

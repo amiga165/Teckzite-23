@@ -6,8 +6,8 @@ if (!isset($_SESSION["admin_id"])) {
     header("Location: login.html");
     exit;
 }
-if(isset($_GET['wk'])){
-    $success = $_GET['wk'];
+if(isset($_GET['work'])){
+    $success = $_GET['work'];
     ?>
     <script> alert("<?php echo $success ?>")</script>
     <?php
@@ -59,12 +59,12 @@ if(isset($_GET['wkdel'])){
 
 
                         <div class="form-floating mb-3">
-                            <textarea name="st-des" id="" cols="40" rows="10" class="vk" required></textarea >
+                            <textarea name="st-des" id="" cols="40" rows="3" class="vk" required></textarea >
                             <label for="floatingText">Short-des</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <textarea name="des" id="" cols="40" rows="12" class="vk" required></textarea>
+                            <textarea name="des" id="" cols="40" rows="30" class="vk" required></textarea>
                             <label for="floatingText">Description</label>
                         </div>
 
@@ -78,7 +78,7 @@ if(isset($_GET['wkdel'])){
 
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingText" placeholder="Heading" name="venue and time" required>
+                            <input type="text" class="form-control" id="floatingText" placeholder="Heading" name="vt" required>
                             <label for="floatingText">Venue & Time</label>
                         </div>
 

@@ -3,7 +3,7 @@
 echo '
 
 <!-- Footer -->
-<footer  style="position:relative">
+<footer  style="position:relative;display:grid;">
   <div class="footer-line"><img src="assets/img/footer-fl.svg"></div>
    <div class="footer-middle-part">
     <a href="about.php">About</a>
@@ -26,6 +26,8 @@ echo '
       </div> -->
    </div>
 </footer>
+
+<script src="assets/js/script.js"></script>
 
 <!-- ENd footer -->
 
