@@ -352,7 +352,7 @@ include "repeats/header.php"
       $("#eveDepartment").text(eveDepartment);
       $("#eveName").text(eveName);
       $("#eveTeamSize").text("Team Size: "+maxTeam);
-      var patch = `<form action='event-code.php' method='post'><input type='text' hidden name='event_id' value=${eveID}><input type='text' hidden name='tsize' value=${maxTeam}><input type='text' hidden name='branch' value=${eveDepartment}>`;
+      var patch = `<form action='event-code.php' method='post'><input type='text' hidden name='event_id' value=${eveName}><input type='text' hidden name='tsize' value=${maxTeam}><input type='text' hidden name='branch' value=${eveDepartment}>`;
       for(let x=1; x<=maxTeam;x++){patch = patch+ `<div class="field"><label for="Tz-Id-${x}">Techzite ID${x}</label><input type="text" name="tzidNumber-${x}" id="Tz-Id-${x}" required><i></i><br></div>`;}
       document.getElementById("tz_ids").innerHTML = patch+"<input type='submit' class='btn btn-success mt-4' id='reg_submit' style='margin:10px 30%;width:40%' value='Submit'></form>";
     });

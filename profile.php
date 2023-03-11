@@ -1,4 +1,10 @@
-
+<?php
+session_start();
+if(!isset($_SESSION['id']))
+{
+  header("Location: login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +47,7 @@ include "repeats/metatags.php"
     <?php
 
     include "db_config.php";
-    session_start();
+    
     if(isset($_SESSION['id'])) {
       $id =$_SESSION['id'];
       echo $id;  
@@ -192,7 +198,6 @@ include "repeats/metatags.php"
 </head>
 <body>
     <?php
-session_start();
 
 echo '<div class="side-nav">
 <div class="close-btn">
@@ -308,19 +313,28 @@ if (!$conn) {
 // get the email for a specific ID number
 $sql = "SELECT * FROM events_reg";
 $everes=mysqli_query($conn,$sql);
-
-if($everes->num_rows >0)
+$esql="SELECT * FROM competitions";
+$comres=mysqli_query($conn,$esql);
+if(($everes->num_rows >0) && ($comres->num_rows>0))
 {
     while($row=mysqli_fetch_assoc($everes))
     {
         if(($row['tzid1'] == $id ) || ($row['tzid2'] == $id) || ($row['tzid3'] == $id)|| ($row['tzid4'] == $id)|| ($row['tzid5'] == $id) || ($row['tzid6'] == $id) || ($row['tzid7'] == $id) || ($row['tzid8'] == $id) || ($row['tzid9'] == $id) || ($row['tzid10'] == $id))
         {
+          while($img=mysqli_fetch_assoc($comres))
+          {
+            if($row['event_id'] == $img['eveName'])
+            { ?>
+                <div class="card">
+                <img src="eventsphotos/<?= $img['eveImg'] ?>" alt="">
+            <?php
+            }
+          }
             
            ?>
             
         <!-- first card started -->
-        <div class="card">
-          <!-- <img src="assests\harry1.webp" alt="" width="100%" height="100%"> -->
+        
           <div class="content">
             <div class="row ">
               <div class="col info  ">Event Name</div>
