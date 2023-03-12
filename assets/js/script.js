@@ -1,4 +1,4 @@
-// Navbar
+
     const navbarIcon = document.querySelectorAll('.navbar-icon');
     const sideNav = document.querySelector('.side-nav');
     navbarIcon.forEach(function(icon){

@@ -35,7 +35,7 @@ include "repeats/metatags.php"
   
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/header.css" rel="stylesheet">
+ 
   <link href="assets/css/stars.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="assets/css/workshop.css"> -->
   <link rel="stylesheet" href="assets/css/sub.css">

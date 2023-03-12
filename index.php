@@ -33,9 +33,8 @@ include "repeats/metatags.php"
   
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/header.css" rel="stylesheet">
   <link href="assets/css/stars.css" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="assets/css/workshop.css"> -->
+ 
   <link rel="stylesheet" href="assets/css/sub.css">
 
 </head>
@@ -115,9 +114,7 @@ include "repeats/header.php"
         <img src="assets\img\rock.png" width="100%" height="100%">
 
       </div>
-      <div class="img6">
-        <img src="assets\img\bg-planet.png" width="100% height="100%">
-      </div>
+     
 
     </div>
 </section>
