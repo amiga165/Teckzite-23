@@ -193,6 +193,10 @@ include "repeats/metatags.php"
     }
     .card:hover .extra-details{
       height:135px;
+      overflow:scroll;
+    }
+    .card:hover .extra-details::-webkit-scrollbar{
+      display:none;
     }
     .card table tr td{
       color:white
@@ -229,8 +233,9 @@ echo '<li class="side-nav-list-items"><a href="about.php" class="side-nav-link">
     <li class="side-nav-list-items"><a href="workshops.php" class="side-nav-link">Workshops</a></li>
     <li class="side-nav-list-items"><a href="contact.php" class="side-nav-link">Contact</a></li>
     <li class="side-nav-list-items"><a href="speakers.php" class="side-nav-link">Speakers</a></li>
-    <li class="side-nav-list-items"><a href="sponsers.php" class="side-nav-link">Sponsers</a></li>
+    <li class="side-nav-list-items"><a href="sponsers.php" class="side-nav-link">Sponsors</a></li>
     <li class="side-nav-list-items"><a href="schedule.php" class="side-nav-link">Schedule</a></li>
+    <li class="side-nav-list-items"><a href="temp.php" class="side-nav-link">Highlights</a></li>
     <li class="side-nav-list-items"><a href="updates.php" class="side-nav-link">Updates</a></li>';
 
 
@@ -371,6 +376,27 @@ mysqli_close($conn);
                 <td>&nbsp;&nbsp;:-&nbsp;&nbsp;</td>
                 <td> <?php echo $row['teamsize'] ?></td>
               </tr>
+               
+              <?php
+            $team = array();
+            for ($i = 1; $i <= $row['teamsize']; $i++) {
+                $tzid_col = "tzid" . $i;
+                $tzid = $row[$tzid_col];
+                if (!empty($tzid)) {
+                    $team[] = $tzid;
+                    // echo $team[$i-1];
+                    ?>
+                    <tr>
+                        <td>Member</td>
+                        <td>&nbsp;&nbsp;:-&nbsp;&nbsp;</td>
+                        <td><?php echo $team[$i-1] ?></td>
+                    </tr>
+                    <?php
+                }
+            }
+            ?>
+
+
               <tr>
                 <td>Branch</td>
                 <td>&nbsp;&nbsp;:-&nbsp;&nbsp;</td>

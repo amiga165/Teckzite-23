@@ -41,7 +41,7 @@ if(isset($_GET['albd'])){
                             <label for="floatingInput" >Date</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <textarea placeholder="MSG"  name="message" class="vk" rows="4" cols="40" id="floatingText" required> </textarea>
+                            <textarea placeholder="MSG"  name="message" class="vk" rows="20" cols="40" id="floatingText" required> </textarea>
                             <label for="floatingInput" > Message </label>
                         </div>
                         <div class="form-floating mb-3">

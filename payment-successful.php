@@ -26,6 +26,11 @@
           font-size:20px;
           margin: 0;
         }
+        .details{
+          color:red;
+          font-size:25px;
+          font-weight:bold;
+        }
       i {
         color: #9ABC66;
         font-size: 100px;
@@ -41,6 +46,7 @@
         margin: 0 auto;
         text-align:center;
         justify-content:center;
+        
       }
       .cbody{
         border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;
@@ -58,9 +64,11 @@
         height:50px;
 
       }
-      @media only screen and (max-width:1000px) {
+      @media only screen and (max-width:576px) {
         
-
+        .card{
+          width:fit-content;
+        }
         
       }
     </style>
@@ -71,7 +79,16 @@
         <i class="checkmark">✓</i>
       </div>
         <h1>Success</h1> 
-        <p>We received your purchase request;<br/> we'll be in touch shortly!</p>
+        <p class="details"><?php 
+        if(isset($_GET['payment']))
+        {
+          $detail=$_GET['payment'];
+          $detail_arr=explode(",",$detail);
+          foreach($detail_arr as $value) {
+            echo $value . "<br/>";
+        }
+        }
+         ?></p><p> we'll be in touch shortly!</p>
         <a href="index.php"><button class="but">Ok</button></a>
       </div>
     </body>

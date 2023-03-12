@@ -121,6 +121,7 @@ ul.side-nav-list li{
   margin: 25px auto;
   height: 40px;
   position: relative;
+  padding-block:5px;
   font-size: 14px;
   font-weight: bold;
   color: #fff;
@@ -483,7 +484,7 @@ body {
   
 /* Footer */
 footer{
-  position: absolute;
+  position: relative;
   display: grid;
   grid-template-columns: 35% 30% 35%;
   background-color: transparent;

@@ -233,6 +233,11 @@ include "repeats/header.php"
       <?php
 include "repeats/footer.php"
 ?>
+<style>
+  footer{
+    position:relative;
+  }
+</style>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

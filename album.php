@@ -1,10 +1,10 @@
 <?php
 session_start();
-if(!isset($_SESSION['id']))
-{
-  header("Location: index.php");
-}
-?>
+// if(!isset($_SESSION['id']))
+// {
+//   header("Location: index.php");
+// }
+// ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +12,7 @@ if(!isset($_SESSION['id']))
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
   <script src="js/jquery.min.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>Teckzite | User Profile</title>
+  <title>Teckzite | Event Updates</title>
   <?php 
 include "repeats/metatags.php"
 ?>
@@ -88,6 +88,7 @@ echo '<li class="side-nav-list-items"><a href="about.php" class="side-nav-link">
     <li class="side-nav-list-items"><a href="speakers.php" class="side-nav-link">Speakers</a></li>
     <li class="side-nav-list-items"><a href="sponsers.php" class="side-nav-link">Sponsers</a></li>
     <li class="side-nav-list-items"><a href="schedule.php" class="side-nav-link">Schedule</a></li>
+    <li class="side-nav-list-items"><a href="temp.php" class="side-nav-link">Highlights</a></li>
     <li class="side-nav-list-items"><a href="updates.php" class="side-nav-link">Updates</a></li>';
 
 
@@ -174,7 +175,7 @@ echo '</
                             <button class="btn"><a href="<?= $row['link'] ?>" target="_blank">Read More</a></button>
                         </div>
                 </div>
-                <div class="sections-img EventIMG second"><img src="uploads/<?= $row['image'] ?>" alt=""></div>
+                <div class="sections-img EventIMG second"><img src="album/<?= $row['image'] ?>" alt=""></div>
             </div>
        <?php
        }
@@ -185,6 +186,11 @@ echo '</
   <?php 
 include "repeats/footer.php"
 ?>
+<style>
+  footer{
+    position:relative;
+  }
+</style>
 </body>
 </html>
 <style>
@@ -230,6 +236,29 @@ include "repeats/footer.php"
     .album-flex .btn{
       padding: 0;
       margin: 0;
+    }
+    .album-flex .event-btn{
+      display: flex;
+      justify-content:flex-end;
+      margin-right: 10px;
+    }
+    .album-flex .event-btn .btn{
+      color:white;
+      text-transform:none;
+      padding: 2px 10px;
+      border:1px solid white;
+    }
+    .album-flex .event-btn .btn a{
+      color:white;
+    }
+    .album-flex .event-btn .btn:hover{
+      background:#3fefef;
+    }
+    .album-flex .event-btn .btn:hover a{
+      color:black;  
+    }
+    .album-flex .event-btn .btn a{
+      text-decoration:none;
     }
     @media (max-width:650px){
       .album-flex{

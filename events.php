@@ -167,34 +167,34 @@ include "repeats/header.php"
         <div class="tabs" style="margin-top:70px;z-index:10;">
             <ul class="nav tab-cont">
                 <li class="nav-item">
-                  <a class="tab-a nav-link active dfilters " data-bs-toggle="tab" href="#forall" id="forall"  data-filter="forall">For All</a>
+                  <a class="tab-a nav-link active dfilters "  href="#forall" id="forall"  data-filter="forall">For All</a>
                 </li>
                 <li class="nav-item">
-                  <a class="tab-a nav-link  dfilters" data-bs-toggle="tab" href="#puc" id="puc" data-filter="puc">PUC</a>
+                  <a class="tab-a nav-link  dfilters"  href="#puc" id="puc" data-filter="puc">PUC</a>
                 </li>
                 <li class="nav-item">
-                  <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#cse" id="cse" data-filter="cse">CSE</a>
+                  <a class="tab-a nav-link dfilters"  href="#cse" id="cse" data-filter="cse">CSE</a>
                 </li>
                 <li class="nav-item">
-                  <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#ece" id="ece" data-filter="ece">ECE</a>
+                  <a class="tab-a nav-link dfilters"  href="#ece" id="ece" data-filter="ece">ECE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#civil" id="civil" data-filter="civil">civil</a>
+                    <a class="tab-a nav-link dfilters"  href="#civil" id="civil" data-filter="civil">civil</a>
                   </li>
                 <li class="nav-item">
-                    <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#mech" id="mech" data-filter="mech">Mechanical</a>
+                    <a class="tab-a nav-link dfilters"  href="#mech" id="mech" data-filter="mech">Mechanical</a>
                 </li>
                 <li class="nav-item">
-                    <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#chemical" id="chem" data-filter="chem">Chemical</a>
+                    <a class="tab-a nav-link dfilters"  href="#chemical" id="chem" data-filter="chem">Chemical</a>
                   </li>
                 <li class="nav-item">
-                    <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#mme"id="mme" data-filter="mme">MME</a>
+                    <a class="tab-a nav-link dfilters"  href="#mme"id="mme" data-filter="mme">MME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#eee" id="eee" data-filter="eee">EEE</a>
+                    <a class="tab-a nav-link dfilters"  href="#eee" id="eee" data-filter="eee">EEE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#robotics" id="robotics" data-filter="robotics">Robotics</a>
+                    <a class="tab-a nav-link dfilters"  href="#robotics" id="robotics" data-filter="robotics">Robotics</a>
                 </li>
               </ul>
         </div>
@@ -348,10 +348,17 @@ include "repeats/header.php"
       $("#eveDepartment").text(eveDepartment);
       $("#eveName").text(eveName);
       $("#eveTeamSize").text("Team Size: "+maxTeam);
+      let fieldInputs = [null];
       var patch = `<form action='event-code.php' method='post'><input type='text' hidden name='event_id' value=${eveName}><input type='text' hidden name='tsize' value=${maxTeam}><input type='text' hidden name='branch' value=${eveDepartment}>`;
-      for(let x=1; x<=maxTeam;x++){patch = patch+ `<div class="field"><label for="Tz-Id-${x}">Techzite ID${x}</label><input type="text" name="tzidNumber-${x}" id="Tz-Id-${x}" oninput='this.value = this.value.toUpperCase();' required><i></i><br></div>`;}
-      document.getElementById("tz_ids").innerHTML = patch+"<input type='submit' class='btn btn-success mt-4' id='reg_submit' style='margin:10px 30%;width:40%' value='Submit'></form>";
-      changeToUppercase()
+      for(let x=1; x<=maxTeam;x++){
+          patch += `<div class="field">
+                        <label for="Tz-Id-${x}">Techzite ID${x}</label>
+                        <input type="text" name="tzidNumber-${x}" id="Tz-Id-${x} tecId" oninput='this.value = this.value.toUpperCase(); fieldInputs[${x}] = this.value;' class="regx" required>
+                        <i></i>
+                        <br>
+                  </div>`;
+      }
+      document.getElementById("tz_ids").innerHTML = patch+"<div class='error-msg'></div><input type='submit' class='btn btn-success mt-4' id='reg_submit' style='margin:10px 30%;width:40%' value='Submit' onclick='validateForm(event)'></form>";
     });
     $(".closeme").click(function(){
       $("#register").hide();
@@ -359,8 +366,64 @@ include "repeats/header.php"
     /*$("#viewmore").click(function(){$(this).css("display","none");});*/
   });
   // ----------------------------------------------------CARDS
-  
+
+  function validateForm(e) {
+  var inputs = document.querySelectorAll('input.regx');
+  const errorMsg = document.querySelector('.error-msg');
+  var inputArray = [];
+  var x = 0;
+  inputs.forEach(function(input) {
+    y = input.value;
+    inputArray[x] = y;
+    x += 1;
+  })
+  const z = inputs.length;
+  var error = checkArray(inputArray, errorMsg, 0);
+  if(error == 1){
+    e.preventDefault();
+  }
+  else{
+    error = checkUnique(inputArray, z, errorMsg, error);
+    if(error == 1){
+      e.preventDefault();
+    }
+  }
+}
+
+function checkArray(arr, msg, error) {
+  for (var i = 0; i < arr.length; i++) {
+    if (!arr[i]) {
+      msg.innerHTML = 'All fields Must be filled';
+      error = 1;
+    } else {
+      msg.innerHTML = '';
+    }
+  }
+  return error;
+}
+
+function checkUnique(arr, l, msg, error) {
+  let uniqueArr = [...new Set(arr)];
+  if (uniqueArr.length < l) {
+    msg.innerHTML = 'All fields Must be Unique';
+    error = 1;
+  } else {
+    msg.innerHTML = '';
+  }
+  return error;
+}
+
+
 </script>
+<style>
+  .error-msg{
+    color:red;
+    margin-top: 10px;
+    font-size:20px;
+    font-weight:800;
+    text-align:center;
+  }
+</style>
 
 
 

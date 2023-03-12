@@ -42,6 +42,6 @@ if (isset($_POST['albdel'])) {
 }
 
 else{
-    echo "not";
+    echo 'not';
 }
 ?>

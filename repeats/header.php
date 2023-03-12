@@ -23,6 +23,7 @@ echo '<li class="side-nav-list-items"><a href="about.php" class="side-nav-link">
     <li class="side-nav-list-items"><a href="speakers.php" class="side-nav-link">Speakers</a></li>
     <li class="side-nav-list-items"><a href="sponsers.php" class="side-nav-link">Sponsers</a></li>
     <li class="side-nav-list-items"><a href="schedule.php" class="side-nav-link">Schedule</a></li>
+    <li class="side-nav-list-items"><a href="temp.php" class="side-nav-link">Highlights</a></li>
     <li class="side-nav-list-items"><a href="updates.php" class="side-nav-link">Updates</a></li>';
 
 

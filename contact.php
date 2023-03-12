@@ -288,7 +288,11 @@ include "repeats/header.php"
   <?php
 include "repeats/footer.php"
 ?>
-
+<style>
+  footer{
+    position:relative;
+  }
+</style>
 <!-- ENd footer -->
  
   <!-- Vendor JS Files -->

@@ -51,8 +51,9 @@ if ($conn->connect_error) {
         $stmt->execute();
         if($stmt)
         {
-        $yes="Registration is successfully done";
-            echo 'registrion successfully dont';
+            $emailandid=$email.",".$new_id;
+            
+            header("Location: payment.php?pay=$emailandid");
 
         }
         

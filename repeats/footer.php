@@ -3,11 +3,11 @@
 echo '
 
 <!-- Footer -->
-<footer  style="position:relative;display:grid;">
+<footer  style="display:grid;">
   <div class="footer-line"><img src="assets/img/footer-fl.svg"></div>
    <div class="footer-middle-part">
     <a href="about.php">About</a>
-    <a href="seminars.php">Temp</a>
+    <a href="temp.php">Temp</a>
     <a href="album.php">Event Updates</a>
    </div>
    <div class="footer-left-part">

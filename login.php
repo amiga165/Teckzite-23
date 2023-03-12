@@ -54,7 +54,7 @@ include "repeats/header.php"
   
   <!-- End Header Section -->
   <!-- ======= Hero Section ======= -->
-  <main id="main_container" style="min-height:100vh;" class="d-flex justify-content-center align-items-center">
+  <main id="main_container" style="min-height:90vh;" class="d-flex justify-content-center align-items-center">
    
   <div class="container">
     <div class="row" >
@@ -119,6 +119,11 @@ if (isset($_GET['error'])) {
 <?php
 include "repeats/footer.php"
 ?>
+<style>
+  footer{
+    position:absolute;  
+  }
+</style>
 
 <!-- End footer -->
 

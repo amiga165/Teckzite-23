@@ -57,24 +57,274 @@ include "repeats/header.php"
     </div>
 </div>
 
-<div class="main-img-container">
-  <img src="assets/img/Group 2.png" >
-</div>
+<div class="index-center-img">
+      <img src="assets/img/hero.png">
+    </div>
 <style>
-  .main-img-container{
-    position:absolute;
-    z-index:-1;
-    width: 100%;
-    height:100vh;
-    top: 0;
-    left: 0;
-  }
-  .main-img-container img{
-    width: 100%;
-    height: 100vh;
-  }
+    .index-center-img{
+      position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+      width: 480px; 
+      height: 480px;
+      overflow:hidden;
+      z-index:-1;
+    }
+    .index-center-img img{
+      height: 100%;
+      width: 100%;
+    }
+    @media (max-width:992px){
+     .index-center-img{
+      width: 400px;
+      height: 400px;
+     }
+    }
+    @media (max-width:450px){
+      .index-center-img{
+        width: 300px;
+        height: 300px;
+      }
+    }
 </style>
 
+
+<section class="bg-space">
+    <div class="set">
+      <div class="img1">
+        <img src="assets\img\rock.png" width="150%" height="150%">
+      </div>
+      <div class="img2">
+        <img src="assets\img\rock.png" width="100%" height="100%">
+
+      </div>
+      <!-- satellite image started-->
+      <div class="img3">
+        <img src="assets\img\rock.png" width="100%" height="100%">
+      </div>
+      <div class="img4">
+        <img src="assets\img\rock.png" width="50%" height="50%">
+
+      </div>
+      <div class="img5">
+        <img src="assets\img\rock.png" width="100%" height="100%">
+
+      </div>
+      <div class="img6">
+        <img src="assets\img\bg-planet.png" width="100% height="100%">
+      </div>
+
+    </div>
+</section>
+  <style>
+  
+    .bg-space {
+      z-index:-10;
+        position: absolute;
+        width:100%;
+        height: 100vh;
+        top:0;
+        left:0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+      }
+      .set div{
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+      }
+    .bg-space .set {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+    .bg-space .set div{
+        position: absolute;
+        display: block;
+      }
+    .bg-space .set div:nth-child(1){
+        left: 30%;
+        top: -20%;
+        animation:one 10s linear infinite;
+        
+      }
+      @keyframes one {
+        0%{
+          top: -20%;
+          left: 30%;
+          transform: rotate(0deg);
+        }
+        100%{
+          left: 0;
+          top: 100%;
+          transform: rotate(90deg);
+        }
+
+      }
+    .bg-space .set div:nth-child(2){
+        right: 30%;
+        top: 100%;
+        animation:two 7s linear infinite;
+
+        
+      }
+    .bg-space .set div:nth-child(2) img {
+        transform: rotate(90deg);
+      }
+      @keyframes two {
+        0%{
+          right:30%;
+          top: 100%;
+        }
+        
+        100%{
+          right:-30%;
+          top: 50%;
+        }
+
+      }
+    .bg-space .set div:nth-child(3){
+        position: relative;
+        left: 30%;
+        top: 100%;
+        animation:three 10s linear infinite;
+
+      }
+      
+      @keyframes three {
+        0%{
+          transform: rotate(0deg);
+          left: 30%;
+          top: 100%;
+        }
+        100%{
+          transform: rotate(60deg);
+          left: 0%;
+          top: 0%;
+        }
+
+        
+      }
+    .bg-space .set div:nth-child(3) img{
+        transform: rotate(-60deg);
+      }
+    .bg-space .set div:nth-child(4){
+        left: 100%;
+        bottom: 0%;
+        animation:four 8s linear infinite;
+
+        
+      }
+      @keyframes four {
+        0%{
+          opacity: 0.5;
+          bottom: 0;
+          transform: rotate(0deg);
+        }
+        100%{
+          opacity: 1;
+          left: 65%;
+          bottom: 100%;
+          transform: rotate(90deg);
+        }
+      }
+    .bg-space .set div:nth-child(5){
+        left: 00%;
+        top: -10%;
+        animation:five 8s linear infinite;
+    
+        
+      }
+      @keyframes five {
+        0%{
+          opacity: 0.5;
+          left: 00%;
+          top: -10%;
+          transform: rotate(0deg);
+        }
+        100%{
+          opacity: 1;
+          left: 30%;
+          top: 100%;
+          transform: rotate(90deg);
+        }
+      }
+      .bg-space .set div:nth-child(6){
+        top:10%;
+        right:5%;
+        width: 150px;
+        height: 150px;
+        transform:rotate(30deg);
+        animation: moveabit 5s ease infinite;
+      }
+      @keyframes moveabit {
+        0%{top:10%}
+        50%{top:5%}
+        100%{top:10%}
+      }
+    
+
+      @media (max-width:425px){
+        .set div{
+          width: 70px;
+          height: 70px;
+        }
+        @keyframes one {
+          0%{
+            left: -30%;
+            top: 65%;
+            transform: rotate(0deg);
+          }
+          100%{
+            top: 100%;
+            left: 100%;
+            transform: rotate(90deg);
+
+          }
+        }
+        @keyframes five{
+          0%{
+            top: 100%;
+            left: 30%;
+            transform: rotate(0deg);
+
+          }
+          100%{
+            top: 50%;
+            left: -20%;
+            transform: rotate(90deg);
+
+          }
+        }
+      .bg-space .set div:nth-child(3){
+          width: 100px;
+          height: 100px;
+        }
+      .bg-space .set div:nth-child(3){
+          animation-duration: 6s;
+        }
+        @keyframes three{
+          0%{
+            left: 100%;
+            top: 100%;
+          }
+          100%{
+            top: 70%;
+            left: -40%;
+          }
+        }
+      }
+
+  </style>
 
 <?php
   include "db_config.php";

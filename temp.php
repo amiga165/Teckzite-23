@@ -7,7 +7,7 @@ include "repeats/metatags.php"
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
   <script src="js/jquery.min.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>Teckzite | Register</title>
+  <title>Teckzite | Temp</title>
  
 
   <!-- Favicons -->
@@ -63,117 +63,14 @@ include "repeats/header.php"
 <main id="main-container" style="margin-top:100px">
   <svg class="side-heading" style="margin-top:-10px">
     <text x="50%" dominant-baseline="middle" text-anchor="middle" y="50%">
-        Register
+        Highlights
     </text>
   </svg>
-    <div class="register-box mb-4">
-      <form action="reg.php" method='post' class="row" enctype="multipart/form-data">
-          <div class="my-2 col-12 col-sm-6 d-flex" style="flex-direction:column;justify-content:flex-start">
-              <label for="username">Name</label>
-              <input type="text" name="firstname" id="username" required>
-              <i></i>
-          </div>
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="collage-id">Last Name</label>
-              <input type="text" id="collage-id" name="lastname" required>
-              <i></i>
-          </div>
-         
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="collage">Collage</label>
-              <input type="text" name="collage" id="collage" required>
-              <i></i>
-          </div>
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="year">Year</label>
-              <input type="text" name="year" id="year" required>
-              <i></i>
-          </div>
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label>Gender</label>
-              <div style="display:flex;justify-content:flex-start;align-items:center;">
-                  <div style="margin-right:20px">
-                  <input type="radio" name="gender" value="Male" required id="male">
-                  <label for="male">Male</label>
+   
 
-                  </div>
-                  <div style="margin-right:20px">
-                    <input type="radio" name="gender" id="female"  value="Female"required>
-                    <label for="female" style="margin-left:-15px,padding-left:5px">Female</label>
-                  </div> 
-                  <div>
-                    <input type="radio" name="gender" id="others"  value="Others"required>
-                    <label for="others" style="margin-left:15px"> Others</label>
-                  </div>
-              </div>
-          </div>
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="">Email</label>
-              <input type="email" name='email' id="email" required>
-              <i></i>
-          </div>
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="city">City</label>
-              <input type="text" name="city" id="city" required>
-              <i></i>
-          </div>
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="district">District</label>
-              <input type="text" name="dist" id="district" required>
-              <i></i>
-          </div>
-         
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="state">State</label>
-              <input type="text" id="state" name="state" required>
-              <i></i>
-          </div>
-        
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="phno">Mobile Number</label>
-              <input type="text" name="phno" id="phno" required>
-              <i></i>
-          </div>
-          
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="password">Create a password</label>
-              <input type="password" name="cpass" id="password" required>
-              <i></i>
-          </div>
-          
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="c-password">Re-enter password</label>
-              <input type="password" name="rpass" id="c-password" required>
-              <i></i>
-          </div>
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="clg-id">ID Number / College Roll NO</label>
-              <input type="text" name="cid" id="clg-id" required>
-              <i></i>
-          </div>
-          <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="file">UPLOAD YOUR ID CARD PROOF</label>
-              <input type="file" name="image" id="file" required style="padding-top:10px;color:#3efefe;" accept=".png,.jpg,.jpeg">
-          </div>
-          <input type="text" name="paid" id="amount" style="display:none">
-          <div class="my-2 col-12 col-sm-12 d-flex  "  style="flex-direction:column;justify-content:center;text-align:center">
-            <span>
-              <input type="checkbox" required >
-              <label for="rules"  style="margin-left:2px" id="terms">Accept Terms and conditions</label>
-            </span>
-            <div style="font-size:17px"><a href="#" style="color:aqua;font-weight:700">Click here </a>to read Terms and Conditions</div>
-          </div>
-        
-
-
-          <div id="password-match-error"></div>
-          
-          
-          <input type="submit" value="Continue with Payment" id="register" class="text-center" style="margin-top:20px;margin-bottom:5px;">
-          <br>
-          <div class="already-txt my-2 text-center">Already have an Account <a href="login.html" style="color:#3efefe">Login Here</a></div>
-      </form>
-    </div>
+  <div style="font-size:30px;font-weight:bold;height:20vh;">
+    <marquee>This page will be update soon</marquee>
+  </div>
     <br>
     <br>
     <div  class="text-center">
