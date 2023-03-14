@@ -219,8 +219,8 @@ echo '<div class="side-nav">
 </div>
 <ul class="side-nav-list" style="padding-top:100px">';
 
-if(isset($_SESSION['id'])) {
-  echo '<li class="side-nav-list-items"><a href="profile.php" class="side-nav-link">Profile.'.$_SESSION['id'].'</a></li>';
+if(isset($_SESSION['tzid'])) {
+  echo '<li class="side-nav-list-items"><a href="profile.php" class="side-nav-link">Profile.'.$_SESSION['tzid'].'</a></li>';
   echo '<li class="side-nav-list-items"><a href="logout-code.php" class="side-nav-link">Log Out</a></li>';
 
 } else {
@@ -258,8 +258,8 @@ echo '</ul>
   <div class="sub-elements d-block d-lg-none mx-auto"><i class="bi bi-filter-right navbar-icon"></i></div>
   <ul class="header-right-part d-none d-lg-flex">';
 
-if(isset($_SESSION['id'])) {
-    echo '<li class="sub-elements"><a href="profile.php">'.$_SESSION['id'].'/Profile</a></li>';
+if(isset($_SESSION['tzid'])) {
+    echo '<li class="sub-elements"><a href="profile.php">'.$_SESSION['tzid'].'/Profile</a></li>';
     echo '<li class="sub-elements"><a href="logout-code.php">Log Out</a></li>';
 } else {
     echo '<li class="sub-elements"><a href="login.php">Log In</a></li>';
