@@ -6,9 +6,7 @@ if(isset($_SESSION["admin_id"])) {
     header("Location: index.php");
 }
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $admin_id = $_POST["admin"];
-    $password = $_POST["password"];
+if(isset($_POST['admin'])) {
 
     $conn = mysqli_connect($db_host, $db_user, $db_password, $db_db);
 
@@ -18,16 +16,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare and execute SQL query to retrieve admin with matching id and password
-    $stmt = "SELECT * FROM admin WHERE user_name=$admin_id AND password=$password";
+    $stmt = "SELECT * FROM `admin`";
     $result = mysqli_query($conn,$stmt);
+    $check=0;
+    while($row=mysqli_fetch_assoc($result))
+    {
+        if(($row['user_name'] == $_POST['aid']) && ($row['password'] == $_POST['adpass']))
+        {
+            $_SESSION['admin_id']=$row['user_name'];
+            header("Location: index.php");
+            $check=1;
 
-    if(mysqli_num_rows($result) == 1) {
-        // If user exists, create session and redirect to index page
-        $_SESSION["admin_id"] = $admin_id;
-        header("Location: index.php");
-    } else {
-        // If user doesn't exist, show error message
-        header("Location: login.html");
+        }
+    }
+    if($check==0)
+    {
+        header("Location: login.php");
     }
 
     // Close database connection

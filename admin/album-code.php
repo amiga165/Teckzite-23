@@ -17,9 +17,8 @@ if(isset($_POST['album']))
         $new_img_name=uniqid('IMG-',true).".".$img_type_lc;
         $img_upload_path='../album/'.$new_img_name;
         move_uploaded_file($tmp_name,$img_upload_path);
-        $sql=$conn->prepare("INSERT INTO album (heading,eve_date,msg,link,image) VALUES (?,?,?,?,?)");
-        $sql->bind_param('sssss',$head,$date,$msg,$lnk,$new_img_name);
-        $sql->execute();
+        $sql="INSERT INTO album (heading,eve_date,msg,link,image) VALUES ('$head','$date','$msg','$lnk','$new_img_name')";
+        mysqli_query($conn,$sql);
         $alb="successfully uploaded album";
         header("Location: album-upload.php?al=$alb");
     }
@@ -31,9 +30,8 @@ if (isset($_POST['albdel'])) {
     include "db_config.php";
     $conn = new mysqli($db_host, $db_user, $db_password, $db_db);
     $d = $_POST['id'];
-    $smt = $conn->prepare("DELETE FROM album WHERE id = ?");
-    $smt->bind_param("i", $d);
-    $smt->execute();
+    $smt = "DELETE FROM album WHERE id = '$d'";
+    mysqli_query($conn,$smt);
     
     $smt->close();
     $conn->close();

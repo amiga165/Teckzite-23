@@ -56,17 +56,17 @@
                         </div>
                         <form action="login-code.php" method='post'>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingText" placeholder="TZ2k233_" name="admin" >
+                            <input type="text" class="form-control" id="floatingText" placeholder="TZ2k233_" name="aid" >
                             <label for="floatingText">UserID</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingInput" placeholder="Block" name="password">
+                            <input type="password" class="form-control" id="floatingInput" placeholder="Block" name="adpass">
                             <label for="floatingInput">Password</label>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-4">
                         
                         </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4" >Login</button>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4" name="admin" >Login</button>
 
                         </form>
                     </div>

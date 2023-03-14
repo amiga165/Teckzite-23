@@ -1,5 +1,12 @@
 <?php
 include "repeats/header.php";
+if(isset($_GET['noti']))
+{
+    $notifaction=$_GET['noti'];
+    ?>
+    <script>alert("<?php echo $notifaction ?>")</script>
+    <?php
+}
 ?>        <!-- Sign Up Start -->
         <div class="container-fluid">
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">

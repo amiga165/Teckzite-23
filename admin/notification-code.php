@@ -9,23 +9,11 @@ if(isset($_POST['submit']))
     $msg=$_POST['message'];
     $link=$_POST['elink'];
     $active="YES";
-    $sq=$conn->prepare("UPDATE `notifactions` SET notification_name=?,eventdate=?,eventmsg=?,evelink=?,eveactive=? WHERE id=0");
-    $sq->bind_param('sssss',$name,$evdate,$msg,$link,$active);
-    $sq->execute();
-    if($sq)
-    {
-        echo 'successful';
-    }
+    $sq="UPDATE `notifactions` SET notification_name='$name',eventdate='$evdate',eventmsg='$msg',evelink='$link',eveactive='$active' WHERE id=0";
+    mysqli_query($conn,$sq);
+    $not="notification successfully updated";
+    header("Location: notification.php?noti=$not");
+    $mysqli->close();
 }
-// elseif(isset($_POST['active']))
-// {
-//     $notification=$_POST['notify'];
-//     $act=$_POST['check'];
 
-//     $sql="UPDATE `notifactions` SET eveactive='$act' WHERE notification_name='$notification'";
-//     if(mysqli_query($conn,$sql))
-//     {
-//         echo 'successful';
-//     }
-// }
 ?>

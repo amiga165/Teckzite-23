@@ -58,6 +58,8 @@
   height: 150px;
   background: #181818;
   transition: 0.5s;
+  /* transition : width 1s ease; */
+
   z-index: 10;
   overflow: hidden;
 }
@@ -118,6 +120,7 @@
 }
 .card .content .details{
   padding: 80px;
+  transition: all 1s ease-in-out;
   text-align: center;
   width: 100%;
   

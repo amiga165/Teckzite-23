@@ -103,6 +103,9 @@ nav.header{
   left: 0;
 }
 ul.side-nav-list{
+  transition: all 1s ease;
+}
+ul.side-nav-list{
   list-style-type: none;
   width: 100%;
   padding: 0;

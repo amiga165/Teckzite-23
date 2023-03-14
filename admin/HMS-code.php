@@ -60,8 +60,8 @@ date_default_timezone_set('Asia/Kolkata');
 $checkin_time = date('Y-m-d H:i:s');
 $checkout_time = "NOT YET";
 
-$stmt = $mysqli->prepare("INSERT INTO HMS (tzid, Block, Room, Checkin, Checkout) VALUES (?, ?, ?, ?, ?)");
-$stmt->bind_param("sssss", $tzid, $block, $room, $checkin_time, $checkout_time);
+$stmt ="INSERT INTO HMS (tzid, Block, Room, Checkin, Checkout) VALUES ('$tzid', '$block', '$room', '$checkin_time', '$checkout_time')";
+mysqli_query($mysqli,$stmt);
 
 $stmt->execute();
 

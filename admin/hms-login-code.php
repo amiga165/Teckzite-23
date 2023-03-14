@@ -24,10 +24,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare and execute SQL query to retrieve admin with matching id and password
-    $stmt = mysqli_prepare($conn, "SELECT * FROM `HMS-admins` WHERE user_name=? AND password=?");
-    mysqli_stmt_bind_param($stmt, "ss", $admin_id, $password);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
+    $stmt ="SELECT * FROM `HMS-admins` WHERE user_name=$admin_id AND password=$password";
+    $result = mysqli_query($conn,$stmt);
 
     if(mysqli_num_rows($result) == 1) {
         // If user exists, create session and redirect to HMS page

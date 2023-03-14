@@ -28,12 +28,9 @@ foreach ($tzids as $tzid) {
         continue; // skip this iteration
     }
 
-    $sql = "SELECT * FROM Registrations WHERE Id = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "s", $tzid);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-
+    $sql = "SELECT * FROM Registrations WHERE Id = '$tzid'";
+   
+  $result=mysqli_query($conn,$sql);
     if (mysqli_num_rows($result) == 0) {
         $error .= "Techzite ID $tzid is not registered for the fest.<br>";
     }
@@ -45,23 +42,20 @@ foreach ($tzids as $tzid) {
         continue; // skip this iteration
     }
 
-    $sql = "SELECT * FROM events_reg WHERE event_id = ? AND (tzid1 = ? OR tzid2 = ? OR tzid3 = ? OR tzid4 = ? OR tzid5 = ? OR tzid6 = ? OR tzid7 = ? OR tzid8 = ? OR tzid9 = ? OR tzid10 = ?)";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "sssssssssss", $event, $tzid, $tzid, $tzid, $tzid, $tzid, $tzid, $tzid, $tzid, $tzid, $tzid);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
+    $sqlqu = "SELECT * FROM events_reg WHERE event_id = '$event' AND (tzid1 = '$tzid' OR tzid2 = '$tzid' OR tzid3 = '$tzid' OR tzid4 = '$tzid' OR tzid5 = '$tzid' OR tzid6 = '$tzid' OR tzid7 = '$tzid' OR tzid8 = '$tzid' OR tzid9 = '$tzid' OR tzid10 = '$tzid')";
+    $res = mysqli_query($conn,$sqlqu);
 
-    if (mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($res) > 0) {
         $error .= "Techzite ID $tzid is already registered for this event.<br>";
     }
 }
 
 // If there are no errors, insert the data into the event table
 if (empty($error)) {
-    $sql = "INSERT INTO events_reg (event_id, teamsize, branch, tzid1, tzid2, tzid3, tzid4, tzid5, tzid6, tzid7, tzid8, tzid9, tzid10) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "sisssssssssss", $event, $teamsize, $branch, ...$tzids);
-    mysqli_stmt_execute($stmt);
+    $sql = "INSERT INTO events_reg (event_id, teamsize, branch, tzid1, tzid2, tzid3, tzid4, tzid5, tzid6, tzid7, tzid8, tzid9, tzid10) VALUES ('$event', '$teamsize', '$branch', '$tzids[0]', '$tzids[1]', '$tzids[2]', '$tzids[3]', '$tzids[4]', '$tzids[5]', '$tzids[6]', '$tzids[7]', '$tzids[8]', '$tzids[9]')";
+
+    mysqli_query($conn, $sql);
+    
     mysqli_close($conn);
 
     include('event_status-card.php');

@@ -2,7 +2,8 @@
 <html lang="en">
    <head>
    <?php 
-include "repeats/metatags.php"
+include "repeats/metatags.php";
+
 ?>
 
   <meta charset="utf-8">
@@ -85,7 +86,7 @@ include "repeats/header.php"
          
           <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
             <label for="collage">Collage</label>
-              <input type="text" name="collage" id="collage" required>
+              <input type="text" name="college" id="collage" required>
               <i></i>
           </div>
     
@@ -146,7 +147,7 @@ include "repeats/header.php"
           <div id="event-error"></div>
           
           
-          <input type="submit" id="pay-btn" onclick="continueWithPay()" value="Next" id="register" class="text-center" style="margin:auto;margin-top:20px;margin-bottom:5px;width:30%;padding:5px 10px;background-color:#3fefef;border-radius:10px">
+          <input type="submit" id="pay-btn" onclick="continueWithPay()" value="Next" name="workshopcheck" id="register" class="text-center" style="margin:auto;margin-top:20px;margin-bottom:5px;width:30%;padding:5px 10px;background-color:#3fefef;border-radius:10px">
           
           <br>
           <div class="already-txt my-2 text-center">Already have an Account <a href="login.html" style="color:#3efefe">Login Here</a></div>

@@ -5,7 +5,14 @@
 
   <title>Teckzite | Workshops</title>
   <?php 
-include "repeats/metatags.php"
+include "repeats/metatags.php";
+if(isset($_GET['wrksuccess'])){
+  $wrkshop=$_GET['wrksuccess'];
+ ?>
+ <script>alert("<?php echo $wrkshop ?>")</script>
+ <?php
+
+}
 ?>
 
   <!-- Favicons -->
@@ -82,7 +89,7 @@ include "repeats/metatags.php"
    .sub-side-heading{
        color:#3fefef;
        font-family: Gilroy-Medium;
-       font-size: 31px;
+       font-size: 25px;
        font-style: normal;
        font-weight: 700;
        line-height: 37px;
@@ -225,31 +232,42 @@ include "repeats/header.php"
                     <div class="modal-dialog modal-dialog-centered" style="max-width:800px">
                     <div class="modal-content" style="background-color:black;">
                     <div class="modal-header" style="border-bottom:none">
-                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color:white;margin-bottom:10px"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color:white;margin-bottom:10px"></button>
                       </div>
                         <div class="modal-body">
+                        <h5  style="font-size:31px;font-weight:bold;padding:10px;color:#3efefe;"><?php echo $row['wrk_name']; ?></h5>
                         <div class="event-info">  <?php echo $row['wrk_des']; ?>  </div>
                         <div class="flex-div mt-3">
                             <div class="flex-first-half">
                             <div class="event-structure">
-                                <div class="sub-side-heading">Description</div>
+                                <div class="sub-side-heading">Venue and Time</div>
                                 <?php
-                                  echo $row['wrk_des'];
+                                  echo $row['venue_time'];
                                   ?>
+                                  <div class="sub-side-heading">Duration</div>
+                                    <?php echo $row['duration']; ?>
+                                    <div class="sub-side-heading">Amount</div>
+                                    <?php echo $row['amaount']; ?>
                             </div>
                             </div>
                             <div class="flex-second-half">
                                 <div class="event-timeline">
-                                    <div class="sub-side-heading">Venue & Time</div>
-                                    <?php echo $row['venue_time']; ?>
+                                    <div class="sub-side-heading">Contact</div>
+                                    <?php
+                                      $cont=$row['ph_no'];
+                                      $cont_arr=explode(",",$cont);
+                                      foreach($cont_arr as $value) {
+                                        echo $value . "<br/>";
+                                    }
+                                    ?>
                                 </div>
                                 <div class="event-prizes">
-                                    <div class="sub-side-heading">Amount</div>
-                                    <?php echo $row['amaount']; ?>
+                                    
                                 </div>
                                                             </div>
                                                         </div>
-                                                        </div>
+                                                      </div>
+                                                      <div style="font-style:bold;font-weight:bold;color:white;text-align:center;font-size:20px;font-style:italic;">Certificates Will Be Provided</div>
                                                     </div>
                                                     </div>
                                 </div>

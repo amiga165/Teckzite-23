@@ -85,7 +85,7 @@ include "repeats/metatags.php"
    .sub-side-heading{
        color:#3fefef;
        font-family: Gilroy-Medium;
-       font-size: 31px;
+       font-size: 25px;
        font-style: normal;
        font-weight: 700;
        line-height: 37px;

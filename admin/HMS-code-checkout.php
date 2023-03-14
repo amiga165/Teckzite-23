@@ -15,8 +15,8 @@ if ($mysqli->connect_error) {
     echo 'Error: '.$mysqli->connect_error;
     exit();
 } else {
-    $stmt = $mysqli->prepare("UPDATE HMS SET Checkout = ? WHERE tzid = ?");
-    $stmt->bind_param("ss", $checkout_time, $tzid);
+    $stmt ="UPDATE HMS SET Checkout = $checkout_time WHERE tzid = $tzid";
+    mysqli_query($mysqli,$stmt);
 
     $stmt->execute();
     if($stmt->affected_rows === 0) {

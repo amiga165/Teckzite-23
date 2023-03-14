@@ -42,9 +42,8 @@ if ($mysqli->connect_error) {
     echo 'Error: '.$mysqli->connect_error;
     exit();
 } else {
-    $stmt = $mysqli->prepare("INSERT INTO competitions (eveName, eveDepartment, eveImg, description, structure , timeline, prizeMoney, contact_info,  minTeam, maxTeam) VALUES (?, ?, ?, ?,  ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssssii",  $eveName, $eveDepartment, $new_img_name, $description, $structure , $timeline,  $prizeMoney, $contact_info,  $minTeam, $maxTeam);
-    $stmt->execute();
+    $stmt ="INSERT INTO competitions (eveName, eveDepartment, eveImg, description, structure , timeline, prizeMoney, contact_info,  minTeam, maxTeam) VALUES ('$eveName', '$eveDepartment', '$new_img_name', '$description', '$structure' , '$timeline',  '$prizeMoney', '$contact_info',  '$minTeam', '$maxTeam')";
+    mysqli_query($conn,$stmt);
     $stmt->close();
     $mysqli->close();
 
@@ -62,9 +61,8 @@ if (isset($_POST['evedel'])) {
     include "db_config.php";
     $conn = new mysqli($db_host, $db_user, $db_password, $db_db);
     $d = $_POST['id'];
-    $smt = $conn->prepare("DELETE FROM competitions WHERE eveSno = ?");
-    $smt->bind_param("i", $d);
-    $smt->execute();
+    $smt = "DELETE FROM competitions WHERE eveSno = '$d'";
+    mysqli_query($conn,$smt);
     
     $smt->close();
     $conn->close();
