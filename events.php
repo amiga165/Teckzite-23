@@ -167,34 +167,34 @@ include "repeats/header.php"
         <div class="tabs" style="margin-top:70px;z-index:10;">
             <ul class="nav tab-cont">
                 <li class="nav-item">
-                  <a class="tab-a nav-link active dfilters "  href="#forall" id="forall"  data-filter="forall">For All</a>
+                  <a class="tab-a nav-link active dfilters "  data-bs-toggle="tab" href="#forall" id="forall"  data-filter="forall">For All</a>
                 </li>
                 <li class="nav-item">
-                  <a class="tab-a nav-link  dfilters"  href="#puc" id="puc" data-filter="puc">PUC</a>
+                  <a class="tab-a nav-link  dfilters"  data-bs-toggle="tab" href="#puc" id="puc" data-filter="puc">PUC</a>
                 </li>
                 <li class="nav-item">
-                  <a class="tab-a nav-link dfilters"  href="#cse" id="cse" data-filter="cse">CSE</a>
+                  <a class="tab-a nav-link dfilters"  data-bs-toggle="tab" href="#cse" id="cse" data-filter="cse">CSE</a>
                 </li>
                 <li class="nav-item">
-                  <a class="tab-a nav-link dfilters"  href="#ece" id="ece" data-filter="ece">ECE</a>
+                  <a class="tab-a nav-link dfilters"  data-bs-toggle="tab" href="#ece" id="ece" data-filter="ece">ECE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="tab-a nav-link dfilters"  href="#civil" id="civil" data-filter="civil">civil</a>
+                    <a class="tab-a nav-link dfilters"  data-bs-toggle="tab" href="#civil" id="civil" data-filter="civil">civil</a>
                   </li>
                 <li class="nav-item">
-                    <a class="tab-a nav-link dfilters"  href="#mech" id="mech" data-filter="mech">Mechanical</a>
+                    <a class="tab-a nav-link dfilters"  data-bs-toggle="tab" href="#mech" id="mech" data-filter="mech">Mechanical</a>
                 </li>
                 <li class="nav-item">
-                    <a class="tab-a nav-link dfilters"  href="#chemical" id="chem" data-filter="chem">Chemical</a>
+                    <a class="tab-a nav-link dfilters"  data-bs-toggle="tab" href="#chemical" id="chem" data-filter="chem">Chemical</a>
                   </li>
                 <li class="nav-item">
-                    <a class="tab-a nav-link dfilters"  href="#mme"id="mme" data-filter="mme">MME</a>
+                    <a class="tab-a nav-link dfilters"  data-bs-toggle="tab" href="#mme"id="mme" data-filter="mme">MME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="tab-a nav-link dfilters"  href="#eee" id="eee" data-filter="eee">EEE</a>
+                    <a class="tab-a nav-link dfilters"  data-bs-toggle="tab" href="#eee" id="eee" data-filter="eee">EEE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="tab-a nav-link dfilters"  href="#robotics" id="robotics" data-filter="robotics">Robotics</a>
+                    <a class="tab-a nav-link dfilters"  data-bs-toggle="tab" href="#robotics" id="robotics" data-filter="robotics">Robotics</a>
                 </li>
               </ul>
         </div>
@@ -202,9 +202,12 @@ include "repeats/header.php"
         <style>
             .event-flex{
               display:flex;
+              flex-wrap:wrap;
+              margin: 0px auto;
               justify-content:space-around;
               align-items:center;
               flex-wrap:wrap;
+              
             }
           </style>
     

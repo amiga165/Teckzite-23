@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['id']))
+if(!isset($_SESSION['tzid']))
 {
   header("Location: index.php");
 }
@@ -48,8 +48,8 @@ include "repeats/metatags.php"
 
     include "db_config.php";
     
-    if(isset($_SESSION['id'])) {
-      $id =$_SESSION['id'];
+    if(isset($_SESSION['tzid'])) {
+      $id =$_SESSION['tzid'];
       echo $id;  
       } 
     ?>
@@ -236,7 +236,7 @@ echo '<li class="side-nav-list-items"><a href="about.php" class="side-nav-link">
     <li class="side-nav-list-items"><a href="sponsers.php" class="side-nav-link">Sponsors</a></li>
     <li class="side-nav-list-items"><a href="schedule.php" class="side-nav-link">Schedule</a></li>
     <li class="side-nav-list-items"><a href="temp.php" class="side-nav-link">Highlights</a></li>
-    <li class="side-nav-list-items"><a href="updates.php" class="side-nav-link">Updates</a></li>';
+    <li class="side-nav-list-items"><a href="album.php" class="side-nav-link">Event Updates</a></li>';
 
 
 echo '</ul>

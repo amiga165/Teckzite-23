@@ -104,7 +104,7 @@ include "repeats/header.php"
       </div>
       <!-- satellite image started-->
       <div class="img3">
-        <img src="assets\img\rock.png" width="100%" height="100%">
+        <img src="assets\img\rock.png" width="50%" height="50%">
       </div>
       <div class="img4">
         <img src="assets\img\rock.png" width="50%" height="50%">
@@ -190,9 +190,9 @@ include "repeats/header.php"
 
       }
     .bg-space .set div:nth-child(3){
-        position: relative;
-        left: 30%;
-        top: 100%;
+        position: absolute;
+        right: 0%;
+        top: 70%;
         animation:three 10s linear infinite;
 
       }
@@ -200,13 +200,13 @@ include "repeats/header.php"
       @keyframes three {
         0%{
           transform: rotate(0deg);
-          left: 30%;
-          top: 100%;
+          right: 0%;
+          top: 70%;
         }
         100%{
           transform: rotate(60deg);
-          left: 0%;
-          top: 0%;
+          right: 70%;
+          top: -20%;
         }
 
         
@@ -272,18 +272,18 @@ include "repeats/header.php"
 
       @media (max-width:425px){
         .set div{
-          width: 70px;
-          height: 70px;
+          width: 50px;
+          height: 50px;
         }
         @keyframes one {
           0%{
-            left: -30%;
-            top: 65%;
+            left: 30%;
+            top: 0%;
             transform: rotate(0deg);
           }
           100%{
             top: 100%;
-            left: 100%;
+            left: -20%;
             transform: rotate(90deg);
 
           }
@@ -309,16 +309,20 @@ include "repeats/header.php"
       .bg-space .set div:nth-child(3){
           animation-duration: 6s;
         }
-        @keyframes three{
-          0%{
-            left: 100%;
-            top: 100%;
-          }
-          100%{
-            top: 70%;
-            left: -40%;
-          }
+       @keyframes three {
+        0%{
+          transform: rotate(0deg);
+          right: 0%;
+          top: 50%;
         }
+        100%{
+          transform: rotate(60deg);
+          right: 70%;
+          top: -20%;
+        }
+
+        
+      }
       }
 
   </style>
@@ -362,6 +366,11 @@ include "repeats/footer.php"
   footer{
     position:absolute;
   }
+  @media(max-width:500px){
+  footer .footer-left-part p{
+    position: absolute;
+    bottom: 4px;
+  }}
 </style>
 
 

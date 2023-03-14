@@ -89,7 +89,7 @@ include "repeats/footer.php"
 ?>
 <style>
   footer{
-    position:relative;
+    position:absolute;
   }
 </style>
 <script>

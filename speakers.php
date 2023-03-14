@@ -101,18 +101,26 @@ include "repeats/header.php"
         </style>
 
         <div class="speaker-containers">
-        <style>
-          .speaker-containers{
+          <style>
+        .speaker-containers{
           width: 100%;
           overflow:hidden;
           min-height:calc(100vh - 300px)
       }
-      @media (max-width:768px){
-        .speaker-container{
-          width: 90%;
-          margin-left: 10%;
+      @media (max-width:500px){
+        .speaker-containers{
+          width: 85%;
+          overflow:hidden;
+          margin-left: 15%;
+        }
+        .swiper-button-next {
+          right: 30px;
+        }
+        .swiper-button-prev{
+          left: -4px;
         }
       }
+
     </style>
         <div class="swiper mySwiper">
         <div class="swiper-button-next"></div>

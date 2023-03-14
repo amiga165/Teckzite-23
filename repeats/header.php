@@ -7,8 +7,8 @@ echo '<div class="side-nav">
 </div>
 <ul class="side-nav-list" style="padding-top:100px">';
 
-if(isset($_SESSION['id'])) {
-  echo '<li class="side-nav-list-items"><a href="profile.php" class="side-nav-link">Profile.'.$_SESSION['id'].'</a></li>';
+if(isset($_SESSION['tzid'])) {
+  echo '<li class="side-nav-list-items"><a href="profile.php" class="side-nav-link">Profile.'.$_SESSION['tzid'].'</a></li>';
   echo '<li class="side-nav-list-items"><a href="logout-code.php" class="side-nav-link">Log Out</a></li>';
 
 } else {
@@ -24,7 +24,7 @@ echo '<li class="side-nav-list-items"><a href="about.php" class="side-nav-link">
     <li class="side-nav-list-items"><a href="sponsers.php" class="side-nav-link">Sponsers</a></li>
     <li class="side-nav-list-items"><a href="schedule.php" class="side-nav-link">Schedule</a></li>
     <li class="side-nav-list-items"><a href="temp.php" class="side-nav-link">Highlights</a></li>
-    <li class="side-nav-list-items"><a href="updates.php" class="side-nav-link">Updates</a></li>';
+    <li class="side-nav-list-items"><a href="album.php" class="side-nav-link">Event Updates</a></li>';
 
 
 echo '</ul>
@@ -32,7 +32,7 @@ echo '</ul>
 <nav class="header">
 <div class="svg-line"><img src="assets/img/large-screen-hl.svg"></div>
 <div class="hl">
-  <div class="sub-elements d-block d-lg-none mx-auto pf"><i class="bi bi-person-circle"></i></div>
+<a href="profile.php"><div class="sub-elements d-block d-lg-none mx-auto pf"><i class="bi bi-person-circle"></i></div></a>
   <ul class="header-left-part d-none d-lg-flex">
           <li class="sub-elements"><a href="events.php">Competitions</a></li>
           <li class="sub-elements"><a href="workshops.php">Workshops</a></li>
@@ -46,8 +46,8 @@ echo '</ul>
   <div class="sub-elements d-block d-lg-none mx-auto"><i class="bi bi-filter-right navbar-icon"></i></div>
   <ul class="header-right-part d-none d-lg-flex">';
 
-if(isset($_SESSION['id'])) {
-    echo '<li class="sub-elements"><a href="profile.php">'.$_SESSION['id'].'/Profile</a></li>';
+if(isset($_SESSION['tzid'])) {
+    echo '<li class="sub-elements"><a href="profile.php">'.$_SESSION['tzid'].'/Profile</a></li>';
     echo '<li class="sub-elements"><a href="logout-code.php">Log Out</a></li>';
 } else {
     echo '<li class="sub-elements"><a href="login.php">Log In</a></li>';

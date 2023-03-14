@@ -171,40 +171,7 @@ include "repeats/header.php"
   <!-- End Header Section -->
   <!-- ======= Hero Section ======= -->
     <div class="main-event-frame mb-5">
-        <div class="tabs" style="margin-top:70px;z-index:10;">
-            <ul class="nav tab-cont">
-                <li class="nav-item">
-                  <a class="tab-a nav-link active dfilters " data-bs-toggle="tab" href="#forall" id="forall"  data-filter="forall">For All</a>
-                </li>
-                <li class="nav-item">
-                  <a class="tab-a nav-link  dfilters" data-bs-toggle="tab" href="#puc" id="puc" data-filter="puc">PUC</a>
-                </li>
-                <li class="nav-item">
-                  <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#cse" id="cse" data-filter="cse">CSE</a>
-                </li>
-                <li class="nav-item">
-                  <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#ece" id="ece" data-filter="ece">ECE</a>
-                </li>
-                <li class="nav-item">
-                    <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#civil" id="civil" data-filter="civil">civil</a>
-                  </li>
-                <li class="nav-item">
-                    <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#mech" id="mech" data-filter="mech">Mechanical</a>
-                </li>
-                <li class="nav-item">
-                    <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#chemical" id="chem" data-filter="chem">Chemical</a>
-                  </li>
-                <li class="nav-item">
-                    <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#mme"id="mme" data-filter="mme">MME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#eee" id="eee" data-filter="eee">EEE</a>
-                </li>
-                <li class="nav-item">
-                    <a class="tab-a nav-link dfilters" data-bs-toggle="tab" href="#robotics" id="robotics" data-filter="robotics">Robotics</a>
-                </li>
-              </ul>
-        </div>
+       
 
         <style>
             .event-flex{
@@ -419,24 +386,7 @@ include "repeats/footer.php"
   <!-- Template Main JS File -->
   <script src="assets/js/script.js"></script>
 
-         <script>
-          $(document).ready(function(){
-
-
-            $(".boxy").not('.forall').hide();
-                  $(".boxy").filter('.forall').show();
-            $(".dfilters").click(function(){
-                var value = $(this).attr("data-filter");
-                $(this).addClass("x").siblings().removeClass("x");
-                $(".boxy").not('.'+value).hide("50");
-                  $(".boxy").filter('.'+value).show("50");
-                  
-
-              });
-
-          });
-             
-            </script>
+       
 </body>
 
 </html>

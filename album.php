@@ -48,8 +48,8 @@ include "repeats/metatags.php"
 
     include "db_config.php";
     
-    if(isset($_SESSION['id'])) {
-      $id =$_SESSION['id'];
+    if(isset($_SESSION['tzid'])) {
+      $id =$_SESSION['tzid'];
       echo $id;  
       } 
     ?>
@@ -73,7 +73,7 @@ echo '<div class="side-nav">
 <ul class="side-nav-list" style="padding-top:100px">';
 
 if(isset($_SESSION['id'])) {
-  echo '<li class="side-nav-list-items"><a href="profile.php" class="side-nav-link">Profile.'.$_SESSION['id'].'</a></li>';
+  echo '<li class="side-nav-list-items"><a href="profile.php" class="side-nav-link">Profile.'.$_SESSION['tzid'].'</a></li>';
   echo '<li class="side-nav-list-items"><a href="logout-code.php" class="side-nav-link">Log Out</a></li>';
 
 } else {
@@ -111,8 +111,8 @@ echo '</ul>
   <div class="sub-elements d-block d-lg-none mx-auto"><i class="bi bi-filter-right navbar-icon"></i></div>
   <ul class="header-right-part d-none d-lg-flex">';
 
-if(isset($_SESSION['id'])) {
-    echo '<li class="sub-elements"><a href="profile.php">'.$_SESSION['id'].'/Profile</a></li>';
+if(isset($_SESSION['tzid'])) {
+    echo '<li class="sub-elements"><a href="profile.php">'.$_SESSION['tzid'].'/Profile</a></li>';
     echo '<li class="sub-elements"><a href="logout-code.php">Log Out</a></li>';
 } else {
     echo '<li class="sub-elements"><a href="login.php">Log In</a></li>';
@@ -139,7 +139,7 @@ echo '</
     <?php
     include "db_config.php";
     $conn= mysqli_connect($db_host, $db_user, $db_password, $db_db);
-    $sql="SELECT * FROM album";
+    $sql="SELECT * FROM album ORDER BY id DESC";
     $res=mysqli_query($conn,$sql);
 
     if($res->num_rows>0)
@@ -166,7 +166,7 @@ echo '</
           else{?>
             <div class="album-flex content">
             
-                    <div class=" sections-details">
+                    <div class="sections-details">
                         <div class="album-title"><?= $row['heading']." ".$row['eve_date'] ?></div>
                         <div class="album-event-details">
                             <?= $row['msg'] ?>
@@ -194,7 +194,12 @@ include "repeats/footer.php"
 </body>
 </html>
 <style>
-
+    .album-title,.event-btn{
+      height: 10%;
+    }
+    .album-event-details{
+      height: 80%;
+    }
     .album-flex{
       display: flex;
       align-items:center;
@@ -203,7 +208,7 @@ include "repeats/footer.php"
       margin:10px auto;
       border-radius:10px;
       overflow:hidden;
-      background:black;
+      background: linear-gradient(71deg, #080509, #1a171c, #080509);
     }
     .album-flex .sections-img{
       width: 200px;
@@ -220,6 +225,7 @@ include "repeats/footer.php"
     .album-flex .sections-details{
       width: calc(100% - 200px);
       padding-left:10px;
+      height: 100%;
     }
     .album-title{
       width: 100%;
@@ -231,7 +237,7 @@ include "repeats/footer.php"
     }
     .album-event-details{
       color:white;
-      font-size:18px;
+      font-size:16px;
     }
     .album-flex .btn{
       padding: 0;

@@ -103,12 +103,17 @@ body{
 } */
 .bg-section img{
     position: absolute;
-    top: 50%;
+    top: 47%;
     left:50%;
     z-index:-1;
     transform: translate(-50%,-50%);
     width: 100%;
     height: 100%;
+    animation:moveupdown 3s ease-in-out infinite;
+}
+@keyframes moveupdown{
+    0%,100%{top:47%}
+    50%{top:50%}
 }
 @media(max-width:768px){
     .bg-section{

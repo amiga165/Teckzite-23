@@ -1,6 +1,7 @@
 <?php 
-include "db_config.php";
-
+include ("db_config.php");
+if(isset($_POST['cwp']))
+{
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $collage = $_POST['collage'];
@@ -14,7 +15,13 @@ $phno = $_POST['phno'];
 $pass = $_POST['cpass'];
 $clgid = $_POST['cid'];
 // $photo=$_POST['image'];
-$Paid = 250;
+if(strpos($email ,"@rguktn.ac.in") || strpos($email ,"@rgukts.ac.in") )
+{
+    $Paid = 250;
+}
+else{
+    $Paid = 400;
+}
 $conn = mysqli_connect($db_host, $db_user, $db_password, $db_db);
 
 if ($conn->connect_error) {
@@ -24,6 +31,17 @@ if ($conn->connect_error) {
     exit();
 } else {
     // Generate a new unique primary key value
+    $sql = "SELECT * FROM registrations";
+    $emailcheck=mysqli_query($conn,$sql);
+    while($eche=mysqli_fetch_assoc($emailcheck))
+    {
+        if($eche['Email'] == $email)
+        {
+            $emailexists="email already exists";
+            header("Location: register.php?emailche=$emailexists");
+        }
+    }
+    $emailcheck->close();
     $stmt = $conn->prepare("SELECT MAX(CAST(SUBSTRING(Id, 7) AS UNSIGNED)) AS max_id FROM Registrations WHERE Id LIKE 'TZ2k23%'");
     $stmt->execute();
     $stmt->bind_result($max_id);
@@ -47,7 +65,7 @@ if ($conn->connect_error) {
         move_uploaded_file($tmp_name,$img_upload_path);
         // $sql="INSERT INTO id_photo(image_url) VALUES('$new_img_name')";
         $stmt = $conn->prepare("INSERT INTO Registrations (Id ,First_name, Last_name, Collage, Year, Gender, Email, City, District, State, Phone_no, Paid, password, id_card_photo, clgid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssssssssssisss", $new_id, $firstname, $lastname, $collage, $year, $gender, $email, $city, $dist, $state, $phno, $Paid ,$hashed_pass , $new_img_name, $clgid);
+        $stmt->bind_param("sssssssssssisss", $new_id, $firstname, $lastname, $collage, $year, $gender, $email, $city, $dist, $state, $phno, $Paid ,md5($pass) , $new_img_name, $clgid);
         $stmt->execute();
         if($stmt)
         {
@@ -62,5 +80,6 @@ if ($conn->connect_error) {
         $conn->close();
     }
     
+}
 }
 ?>

@@ -59,6 +59,13 @@ include "repeats/header.php"
             Previous  Sponsors
         </text>
     </svg>
+    <style>
+    @media(max-width:500px){
+      .side-heading text{
+        font-size:20px;
+      }
+    }
+    </style>
 
   <!-- Primary Sponsors -->
   <div class="mt-3 sponser-heading">Primary Sponsers</div>

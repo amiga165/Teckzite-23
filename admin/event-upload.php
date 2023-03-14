@@ -64,7 +64,7 @@ if(isset($_GET['d'])){
                         </div>
 
                         <div class="form-floating mb-3">
-                            <textarea name="des" id="" cols="40" rows="10" class="vk" required></textarea>
+                            <textarea name="des" id="" cols="40" rows="23" class="vk" required></textarea>
                             <label for="floatingText">Description</label>
                         </div>
 

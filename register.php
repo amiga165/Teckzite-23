@@ -41,7 +41,13 @@ include "repeats/metatags.php"
 
 <body>
 <?php 
-include "repeats/header.php"
+include "repeats/header.php";
+if(isset($_GET['emailche']))
+{ $emailcheck=$_GET['emailche']
+  ?>
+    <script>alert("<?= $emailcheck ?>")</script>
+  <?php
+}
 ?>
   <!-- Background -->
   <div class="background-container-events">
@@ -63,10 +69,15 @@ include "repeats/header.php"
 <main id="main-container" style="margin-top:100px">
   <svg class="side-heading" style="margin-top:-10px">
     <text x="50%" dominant-baseline="middle" text-anchor="middle" y="50%">
-        Register
+        Registration
     </text>
   </svg>
+
     <div class="register-box mb-4">
+      <div style="font-weight:bold;text-align:center;font-style:italic;">
+        Note: For Rgukt Student (RGUKT Email ): 250/-
+        <br> For Technical Issues Contact (Y.Siddartha : 9398848215)
+      </div>
       <form action="reg.php" method='post' class="row" enctype="multipart/form-data">
           <div class="my-2 col-12 col-sm-6 d-flex" style="flex-direction:column;justify-content:flex-start">
               <label for="username">Name</label>
@@ -161,7 +172,7 @@ include "repeats/header.php"
               <input type="checkbox" required >
               <label for="rules"  style="margin-left:2px" id="terms">Accept Terms and conditions</label>
             </span>
-            <div style="font-size:17px"><a href="#" style="color:aqua;font-weight:700">Click here </a>to read Terms and Conditions</div>
+            <div style="font-size:17px"><a href="tc.html" style="color:aqua;font-weight:700">Click here </a>to read Terms and Conditions</div>
           </div>
         
 
@@ -169,21 +180,15 @@ include "repeats/header.php"
           <div id="password-match-error"></div>
           
           
-          <input type="submit" value="Continue with Payment" id="register" class="text-center" style="margin-top:20px;margin-bottom:5px;">
+          <input type="submit" value="Continue with Payment" id="register" class="text-center" style="margin-top:20px;margin-bottom:5px;" name="cwp">
           <br>
           <div class="already-txt my-2 text-center">Already have an Account <a href="login.html" style="color:#3efefe">Login Here</a></div>
       </form>
     </div>
     <br>
     <br>
-    <div  class="text-center">
-      <div class="blink">If you are facing isuues contact us</div>
-      <div style="font-weight:400;font-size:18px;"><text class="details" style="color:#3efefe;">Mobile:</text>&nbsp;&nbsp;9398848215</div>
-      <div style="font-weight:400;font-size:18px;"><text class="details" style="color:#3efefe;" >Email :</text>&nbsp;&nbsp;codewithsidddhu@gmail.com</div>
-      <!-- <p>Email :codewithsidddhu@gmail.com</p> -->
-    </div>
-    <br>
-    <br>
+  
+   
 </main>
 
 
@@ -205,22 +210,6 @@ include "repeats/footer.php"
 
       const mobileNumberInput = document.getElementById('phno');
 
-      const submitBtn = document.getElementById('register');
-
-      submitBtn.addEventListener('click',function(e){
-        errorCount = validateForm();
-        console.log(emailInput.value.indexOf('@rguktn.ac.in'))
-        if(errorCount == 1){
-          e.preventDefault(); 
-        }
-        if (emailInput.value.indexOf('@rguktn.ac.in') === -1 && emailInput.value.indexOf('@rgukts.ac.in') === -1) {
-          amount.value = 400;
-        }
-        else{
-          amount.value = 250;
-        }
-        console.log(amount.value)
-      });
     
     function validateForm(){
       if(mobileNumberInput.value.length != 10){

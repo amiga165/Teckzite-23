@@ -101,7 +101,7 @@ if (isset($_GET['error'])) {
                          <i></i>
                       </div>
                       <div class="w-100 d-flex align-items-center" style="justify-content:space-between;flex-direction:column;" >
-                           <button type="submit" class="log-btn m-3">log in</button>
+                           <button type="submit" class="log-btn m-3" name="verifymail">log in</button>
                            <div class="m-3">
                               <p>Dont have an account? <a href="register.html" style="color:#3fefef;">Register here</a></p>
                            </div>
@@ -109,11 +109,19 @@ if (isset($_GET['error'])) {
                       </div>
                     </div>
                   </div>
+                  
 </form>
+
         </div>
 
     </div>
   </div>
+  <br>
+  <div style="font-weight:bold;text-align:center;font-style:italic;">
+  For Technical Support, Contact (Y.Siddartha: 9398848215)
+</div>
+<br>
+
 
 </main>
 <?php
