@@ -63,7 +63,7 @@ include "repeats/header.php";
                                 }
                     
                                 // SQL query to retrieve data
-                                $sql = "SELECT * FROM Registrations";
+                                $sql = "SELECT * FROM registrations";
                                 $result = mysqli_query($conn, $sql);
                                 $sum=0;
                                 
@@ -97,7 +97,7 @@ include "repeats/header.php";
                                 }
                     
                                 // SQL query to retrieve data
-                                $sql = "SELECT * FROM Registrations";
+                                $sql = "SELECT * FROM registrations";
                                 $result = mysqli_query($conn, $sql);
                                 $sum=0;
                                 
@@ -159,7 +159,7 @@ include "repeats/header.php";
                                 }
                     
                                 // SQL query to retrieve data
-                                $sql = "SELECT * FROM Registrations";
+                                $sql = "SELECT * FROM registrations";
                                 $result = mysqli_query($conn, $sql);
                     
                                 // Loop through the result set and display data in table format

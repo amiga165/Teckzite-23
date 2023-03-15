@@ -96,10 +96,30 @@ if(isset($_GET['emailche']))
               <i></i>
           </div>
           <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
-            <label for="year">Year</label>
-              <input type="text" name="year" id="year" required>
+            <label for="select-box">Select Year</label>
+              <select name="year" id="select-box" style="background: transparent;border: none;color: white;font-size: 18px;width: 85%;" required>
+              <option></option>
+                <option value="P1">PUC 1</option>
+                <option value="P2">PUC 2</option>
+                <option value="E1">Eng 1st year</option>
+                <option value="E2">Eng 2nd year</option>
+                <option value="E3">Eng 3nd year</option>
+                <option value="E4">Eng 4nd year</option>
+              </select>
+              <style>
+                option{   
+                  backdrop-filter: blur(10px);
+                  background-color: rgba(0,0,0,1);
+                  border: 2px solid rgba(0,0,0,0.1);
+                  box-shadow: 0 0 40px rgb(8 7 16 / 60%);
+                }
+                #select-box:active{
+                  border:none;
+                }
+              </style>
               <i></i>
           </div>
+
           <div class="my-2 col-12 col-sm-6 d-flex"  style="flex-direction:column;justify-content:flex-start">
             <label>Gender</label>
               <div style="display:flex;justify-content:flex-start;align-items:center;">

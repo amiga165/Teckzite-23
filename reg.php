@@ -42,15 +42,13 @@ if ($conn->connect_error) {
         }
     }
     $emailcheck->close();
-    $stmt = $conn->prepare("SELECT MAX(CAST(SUBSTRING(Id, 7) AS UNSIGNED)) AS max_id FROM Registrations WHERE Id LIKE 'TZ2k23%'");
+    $stmt = $conn->prepare("SELECT MAX(CAST(SUBSTRING(Id, 7) AS UNSIGNED)) AS max_id FROM registrations WHERE Id LIKE 'TZ2k23%'");
     $stmt->execute();
     $stmt->bind_result($max_id);
     $stmt->fetch();
     $stmt->close();
     $new_id = 'TZ2K23' . str_pad($max_id+1, 4, '0', STR_PAD_LEFT);
 
-    // Hash the password for security
-    $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
 
     // Insert the new record with the new primary key value
     $img_name=$_FILES['image']['name'];
@@ -64,7 +62,7 @@ if ($conn->connect_error) {
         $img_upload_path='uploads/'.$new_img_name;
         move_uploaded_file($tmp_name,$img_upload_path);
         // $sql="INSERT INTO id_photo(image_url) VALUES('$new_img_name')";
-        $stmt = $conn->prepare("INSERT INTO Registrations (Id ,First_name, Last_name, Collage, Year, Gender, Email, City, District, State, Phone_no, Paid, password, id_card_photo, clgid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO registrations (Id ,First_name, Last_name, Collage, Year, Gender, Email, City, District, State, Phone_no, Paid, password, id_card_photo, clgid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssssssssisss", $new_id, $firstname, $lastname, $collage, $year, $gender, $email, $city, $dist, $state, $phno, $Paid ,md5($pass) , $new_img_name, $clgid);
         $stmt->execute();
         if($stmt)

@@ -28,7 +28,7 @@ foreach ($tzids as $tzid) {
         continue; // skip this iteration
     }
 
-    $sql = "SELECT * FROM Registrations WHERE Id = '$tzid'";
+    $sql = "SELECT * FROM registrations WHERE Id = '$tzid'";
    
   $result=mysqli_query($conn,$sql);
     if (mysqli_num_rows($result) == 0) {

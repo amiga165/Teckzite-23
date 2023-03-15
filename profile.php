@@ -291,7 +291,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 // get the email for a specific ID number
-$sql = "SELECT * FROM Registrations";
+$sql = "SELECT * FROM registrations";
 $res=mysqli_query($conn,$sql);
 if($res->num_rows >0)
 {
