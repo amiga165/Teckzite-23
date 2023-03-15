@@ -43,8 +43,7 @@ if ($mysqli->connect_error) {
     exit();
 } else {
     $stmt ="INSERT INTO competitions (eveName, eveDepartment, eveImg, description, structure , timeline, prizeMoney, contact_info,  minTeam, maxTeam) VALUES ('$eveName', '$eveDepartment', '$new_img_name', '$description', '$structure' , '$timeline',  '$prizeMoney', '$contact_info',  '$minTeam', '$maxTeam')";
-    mysqli_query($conn,$stmt);
-    $stmt->close();
+    mysqli_query($mysqli,$stmt);
     $mysqli->close();
 
     // Display success message as an alert

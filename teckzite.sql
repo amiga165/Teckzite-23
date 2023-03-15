@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2023 at 05:18 PM
+-- Generation Time: Mar 15, 2023 at 04:41 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -39,10 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`sno`, `user_name`, `password`, `position`) VALUES
-(1, 'Tz2k23admin', 'vk123$$', ''),
-(2, 'admin', 'admin', ''),
-(3, 'vamsi', 'vk', 'admin'),
-(4, 'vamsi', 'vk', 'Hms');
+(1, 'vamsi', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -99,7 +96,9 @@ INSERT INTO `competitions` (`sno`, `eveSno`, `eveName`, `eveDepartment`, `eveImg
 (1, 1, 'website', 'cse', 'website-640b0f3f7b7871.54888281.jpg', 'hello guys it is the website event please participate in this event.', 'runner and winner,\r\nrunner and winner,\r\nrunner and winner', '14:10', '200', 'vamsi: 8247252286,\r\nvamsi: 2345,\r\nsiddhu: 2345,\r\nsiva: 2345678', 1, 4),
 (2, 2, 'siddhu', 'cse', 'siddhu-640b29c259a981.94937578.jpg', 'kdddddddksksklsfl;ajofffke', 'sksksk,ksksksk,slslskdkd,kskkss', '14:10', '200', 'kdkskkss,\r\nksksksks,\r\nskskskkss,\r\nssskksks', 1, 3),
 (3, 3, 'teckzite', 'civil', 'teckzite-640c007da470f8.91599654.jpeg', 'Ok guys get ready for the event teckzite ', 'hello,\r\nhi,\r\nbye,\r\nok,\r\nhm,\r\nnice', '12:00', '1000', 'vamsi:8247252286,\r\nram:9573319095', 1, 1),
-(4, 0, 'website', 'forall', 'website-641081f64eb8c1.43079502.png', 'awesxrdctfvyvyg', 'yygfgfgyc,gvyfcftc', '14:10', '100000', 'fctfctfc,uvygv', 1, 1);
+(4, 0, 'website', 'forall', 'website-641081f64eb8c1.43079502.png', 'awesxrdctfvyvyg', 'yygfgfgyc,gvyfcftc', '14:10', '100000', 'fctfctfc,uvygv', 1, 1),
+(5, 0, 'vamsi', 'robotics', 'vamsi-641137ccc41cd3.32592436.png', 'helo mam and sir good morning this is admin panel for check updates in teckzite ', 'helo,\r\nhi,\r\nwhat, is the name of the robot', '12:00', '200', 'contact:8247252286,\r\ncontact:9573319095,\r\ncontact:8790367209', 1, 2),
+(6, 0, 'vamsi', 'robotics', 'vamsi-641137e7cef1b0.10001067.png', 'helo mam and sir good morning this is admin panel for check updates in teckzite ', 'helo,\r\nhi,\r\nwhat, is the name of the robot', '12:00', '200', 'contact:8247252286,\r\ncontact:9573319095,\r\ncontact:8790367209', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -129,7 +128,10 @@ CREATE TABLE `events_reg` (
 --
 
 INSERT INTO `events_reg` (`sno`, `event_id`, `teamsize`, `branch`, `tzid1`, `tzid2`, `tzid3`, `tzid4`, `tzid5`, `tzid6`, `tzid7`, `tzid8`, `tzid9`, `tzid10`) VALUES
-(1, 'teckzite', '1', 'CIVIL', 'TZ2K230009', '-', '-', '-', '-', '-', '-', '-', '-', '-');
+(1, 'teckzite', '1', 'CIVIL', 'TZ2K230009', '-', '-', '-', '-', '-', '-', '-', '-', '-'),
+(2, 'website', '1', 'FORALL', '-', '', '', '', '', '', '', '', '', ''),
+(3, 'website', '1', 'FORALL', '', '', '', '', '', '', '', '', '', ''),
+(4, 'website', '1', 'FORALL', 'TZ2K230003', '-', '-', '-', '-', '-', '-', '-', '-', '-');
 
 -- --------------------------------------------------------
 
@@ -227,7 +229,9 @@ CREATE TABLE `registrations` (
 --
 
 INSERT INTO `registrations` (`Id`, `First_name`, `Last_name`, `Collage`, `Year`, `Gender`, `Email`, `City`, `District`, `State`, `Phone_no`, `Paid`, `password`, `id_card_photo`, `clgid`) VALUES
-('TZ2K230001', 'siva', 'helo', 'rgukt', '3', 'Male', 'N181165@rguktn.ac.in', 'nuzvid', 'kksksks', 'ap', '08833738383', 250, 'cd6790e431c20429fa67bc59955e99e1', 'TZ2K230001-64108f0393aaa0.99739453.png', 'N181116');
+('TZ2K230002', 'siva', 'helo', 'rgukt nuzvid', '5', 'Male', 'N181164@rguktn.ac.in', 'nuzvid', 'ksksks', 'ap', '08833738383', 250, '25d55ad283aa400af464c76d713c07ad', 'TZ2K230002-6410a41f5fb569.52376379.jpg', '7272722'),
+('TZ2K230001', 'siva', 'helo', 'rgukt', '3', 'Male', 'N181165@rguktn.ac.in', 'nuzvid', 'kksksks', 'ap', '08833738383', 250, 'cd6790e431c20429fa67bc59955e99e1', 'TZ2K230001-64108f0393aaa0.99739453.png', 'N181116'),
+('TZ2K230003', 'siva', 'helo', 'rguktn', '4', 'Male', 'siva@gmail.com', 'nuzvid', 'kkd', 'ap', '08247252286', 400, 'cd6790e431c20429fa67bc59955e99e1', 'TZ2K230003-6410ccb884b3a0.13051983.jpeg', 'N181165');
 
 -- --------------------------------------------------------
 
@@ -256,7 +260,10 @@ CREATE TABLE `workshops` (
 INSERT INTO `workshops` (`sno`, `id`, `wrk_name`, `branch`, `wrk_info`, `wrk_des`, `amaount`, `venue_time`, `duration`, `ph_no`, `photo`) VALUES
 (1, 1, 'nemasthe', 'civil', 'good morning', 'ok guys it is for fun', '243', '7383', '2hours', '9573319095', 'IMG-640b5afcac9445.31456129.jpg'),
 (2, 2, 'siddhu', 'mech', 'skskkss', 'kdksllsls', 'kdkkskkd', 'kdkdkd', '3hours', '3319095', 'IMG-640b60c69885e7.12783829.jpg'),
-(3, 3, 'siddhu from srikakulam', 'cse', 'hi this is siddh fr', 'qwertyuioplkjhgfdsaszxcvbn', '10000', 'tiem an', '3hours', '9398848215', 'IMG-640b6d19489d64.40125601.jpg');
+(3, 3, 'siddhu from srikakulam', 'cse', 'hi this is siddh fr', 'qwertyuioplkjhgfdsaszxcvbn', '10000', 'tiem an', '3hours', '9398848215', 'IMG-640b6d19489d64.40125601.jpg'),
+(4, 0, 'gg', 'cse', 'gdgfgfyykskskskks\r\nsissiisiiiiiiiiidfsljljsfllss', 'vamsi is the one of the team  member in the sdcac and siddhu also a skskskkss\r\n sisis s dwevaemesie 2\r\ns', '23456', '12:30', '2 hours', 'contact:llllll,\r\ncontact: sksksks,\r\ncoantacct:sksksls,\r\nskskskksks:sksks', 'IMG-6410ad0b9b46e6.20734307.jpg'),
+(5, 0, 'veeramalla', 'civil', 'hi helo good morning', 'good morning to one and all today we will going to be developing a website for teckzite .I hope it will be done successfully.', '23456', 'Ab-2 first floor 10:30', '2 hours', 'contact:8247252286,\r\ncontact:9912691390,\r\ncontact:8247259099,\r\ncontact:7207201053', 'IMG-641138cb461b49.43338822.png'),
+(6, 0, 'helo', 'robotics', 'rkskskksks', 'kskskskksksklslslsllslslfslskkkkkkkkkkkllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll', '23456', '12:30', '2 hours', 'siva,\r\nhi,\r\nhelo,\r\nskkks,\r\nkskskks', 'IMG-64113d19f3d995.23682279.jpg');
 
 -- --------------------------------------------------------
 
@@ -273,18 +280,16 @@ CREATE TABLE `workshops_reg` (
   `gender` varchar(10) NOT NULL,
   `email` varchar(50) NOT NULL,
   `phono` varchar(30) NOT NULL,
-  `rollno` varchar(30) NOT NULL
+  `rollno` varchar(30) NOT NULL,
+  `paid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `workshops_reg`
 --
 
-INSERT INTO `workshops_reg` (`sno`, `workshop`, `first_name`, `last_name`, `college`, `gender`, `email`, `phono`, `rollno`) VALUES
-(1, 'siddhu', 'siva', 'helo', 'rgukt', 'Male', 'hi@gmail.com', '8247252286', 'N181165'),
-(2, 'siddhu from srikakulam', 'siddhu', 'asdkasndj', 'sadlksajdkl', 'Male', 'co@gmail.com', 'dfds', 'ds'),
-(3, 'siddhu from srikakulam', 'yash', 'yash', 'yash', 'Male', 'yash@yash', '8330930505', 'yash'),
-(4, 'siddhu from srikakulam', 'siva', 'helo', 'rguktn', 'Male', 'vamsi@gmail', '8833738383', 'N181160');
+INSERT INTO `workshops_reg` (`sno`, `workshop`, `first_name`, `last_name`, `college`, `gender`, `email`, `phono`, `rollno`, `paid`) VALUES
+(7, 'veeramalla', 'siva', 'helo', 'rgukt', 'Male', 'siva@gmail.com', '8833738383', 'N181160', 100);
 
 --
 -- Indexes for dumped tables
@@ -364,13 +369,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `competitions`
 --
 ALTER TABLE `competitions`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `events_reg`
 --
 ALTER TABLE `events_reg`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `hms`
@@ -394,13 +399,13 @@ ALTER TABLE `notifactions`
 -- AUTO_INCREMENT for table `workshops`
 --
 ALTER TABLE `workshops`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `workshops_reg`
 --
 ALTER TABLE `workshops_reg`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

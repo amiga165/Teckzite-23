@@ -18,8 +18,8 @@ include "repeats/header.php";
                         </div>
                         <form action="password-update.php" method='post' onsubmit="return validateForm()">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingText" placeholder="TZ2k233_" name="tzid" >
-                            <label for="floatingText">Teckziteid</label>
+                            <input type="text" class="form-control" id="floatingText" placeholder="Email" name="mail" >
+                            <label for="floatingText">Email</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="password"  id="password" class="form-control" id="floatingInput" placeholder="Block" >
@@ -32,7 +32,7 @@ include "repeats/header.php";
                         <div class="d-flex align-items-center justify-content-between mb-4">
                         
                         </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4" >Reset</button>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4" name="forpass">Reset</button>
 
                         </form>
                     </div>
