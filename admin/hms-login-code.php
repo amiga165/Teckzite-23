@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare and execute SQL query to retrieve admin with matching id and password
-    $stmt ="SELECT * FROM `HMS-admins` WHERE user_name=$admin_id AND password=$password";
+    $stmt ="SELECT * FROM `HMS-admins` WHERE user_name='$admin_id' AND password='$password'";
     $result = mysqli_query($conn,$stmt);
 
     if(mysqli_num_rows($result) == 1) {
